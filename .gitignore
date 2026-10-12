@@ -137,3 +137,5 @@ InitTestScene*.unity*
 **/.idea/**/dataSources.local.xml
 **/.idea/**/sqlDataSources.xml
 **/.idea/**/dynamic.xml
+
+CLAUDE.md
