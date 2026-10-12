@@ -12,6 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf1cd98b6120994f90ea8504a392434, type: 3}
   m_Name: News3
   m_EditorClassIdentifier: Assembly-CSharp::NewsItemData
-  headline: news3
-  body: should be real
-  isReal: 1
+  sections:
+  - style: 0
+    text: New Diet Pill Melts Fat Overnight
+    isTrue: 1
+    contradictedRules: []
+  - style: 1
+    text: Study Results
+    isTrue: 1
+    contradictedRules: []
+  - style: 2
+    text: Every one of the 10,000,000 participants lost 30 kg in a single night.
+    isTrue: 0
+    contradictedRules:
+    - {fileID: 11400000, guid: 43aa17fd071d9314b85104a320460df7, type: 2}
+  - style: 1
+    text: Reaction
+    isTrue: 1
+    contradictedRules: []
+  - style: 2
+    text: '"This changes everything," said an anonymous source.'
+    isTrue: 0
+    contradictedRules:
+    - {fileID: 11400000, guid: b0a61e7391a5a9043bdc844b05b34c60, type: 2}

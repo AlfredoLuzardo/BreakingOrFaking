@@ -12,6 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf1cd98b6120994f90ea8504a392434, type: 3}
   m_Name: News4
   m_EditorClassIdentifier: Assembly-CSharp::NewsItemData
-  headline: news4
-  body: should be fake
-  isReal: 0
+  sections:
+  - style: 0
+    text: Northgate Library Extends Weekend Hours
+    isTrue: 1
+    contradictedRules: []
+  - style: 2
+    text: Starting Saturday, the library will stay open until 8 p.m.
+    isTrue: 1
+    contradictedRules: []
+  - style: 1
+    text: Student Demand
+    isTrue: 1
+    contradictedRules: []
+  - style: 2
+    text: '"Students asked for more study space," said head librarian Dana Whitfield.'
+    isTrue: 1
+    contradictedRules: []
