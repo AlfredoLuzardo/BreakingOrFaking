@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a65e015ce24ab2bb7cbfd70d3795c2, type: 3}
+  m_Name: TransitSurvey
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  title: "Transit Survey Backs Proposed Route"
+  pages:
+  - description:
+    - style: 1
+      text: "Survey findings"
+      contradictedRules: []
+    - style: 2
+      text: "Of 200 residents surveyed, 60 supported the proposed route. The report describes this as 80 percent support."
+      contradictedRules:
+      - {fileID: 11400000, guid: 43aa17fd071d9314b85104a320460df7, type: 2}
+    images: []
+  - description:
+    - style: 1
+      text: "Community reaction"
+      contradictedRules: []
+    - style: 2
+      text: "\"Nearly everyone wants this route,\" said an unnamed person familiar with the survey."
+      contradictedRules:
+      - {fileID: 11400000, guid: b0a61e7391a5a9043bdc844b05b34c60, type: 2}
+    images: []
+  author: []
+  date: "10312026"
+  isTrue: 0

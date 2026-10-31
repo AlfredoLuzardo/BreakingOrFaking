@@ -1,12 +1,12 @@
 public class DecisionRecord
 {
-    public DecisionRecord(NewsItemData item, bool approved)
+    public DecisionRecord(ItemData item, bool approved)
     {
         Item = item;
         Approved = approved;
     }
 
-    public NewsItemData Item { get; }
+    public ItemData Item { get; }
     public bool Approved { get; }
-    public bool IsCorrect => Approved == Item.IsReal;
+    public bool IsCorrect => Approved == Item.IsTrue;
 }

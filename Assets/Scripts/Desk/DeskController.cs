@@ -25,8 +25,8 @@ public class DeskController : MonoBehaviour
     [Header("Score")]
     [SerializeField] private TMP_Text scoreText;
 
-    private readonly Queue<NewsItemData> queue = new Queue<NewsItemData>();
-    private NewsItemData currentItem;
+    private readonly Queue<ItemData> queue = new Queue<ItemData>();
+    private ItemData currentItem;
 
     private void Start()
     {
@@ -39,7 +39,7 @@ public class DeskController : MonoBehaviour
 
         rulebookView.Show(dayData.Rules);
 
-        foreach (NewsItemData item in dayData.NewsItems)
+        foreach (ItemData item in dayData.Items)
         {
             if (item != null)
             {
