@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a65e015ce24ab2bb7cbfd70d3795c2, type: 3}
+  m_Name: RepairCafe
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  title: "Repair Cafe Reports Its First Month"
+  pages:
+  - description:
+    - style: 1
+      text: "Monthly report"
+      contradictedRules: []
+    - style: 2
+      text: "Volunteers repaired 45 of the 60 appliances brought to the Westbank Repair Cafe during October, a success rate of 75 percent."
+      contradictedRules: []
+    images: []
+  - description:
+    - style: 1
+      text: "Next session"
+      contradictedRules: []
+    - style: 2
+      text: "\"We will reopen on November 8,\" said coordinator Jules Morgan. The cafe schedule also lists November 8 as its next public session."
+      contradictedRules: []
+    images: []
+  author: []
+  date: "10312026"
+  isTrue: 1

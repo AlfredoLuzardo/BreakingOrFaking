@@ -13,19 +13,21 @@ public class ContradictionChecker : MonoBehaviour
     [SerializeField] private Color contradictsColor = new Color(0.9f, 0.25f, 0.2f);
     [SerializeField] private Color noContradictionColor = Color.white;
 
-    private NewsSectionView selectedSection;
+    private SectionView selectedSection;
     private RuleView selectedRule;
     private Coroutine resetRoutine;
 
     private void OnEnable()
     {
         documentView.SectionClicked += OnSectionClicked;
+        documentView.ContentCleared += Clear;
         rulebookView.RuleClicked += OnRuleClicked;
     }
 
     private void OnDisable()
     {
         documentView.SectionClicked -= OnSectionClicked;
+        documentView.ContentCleared -= Clear;
         rulebookView.RuleClicked -= OnRuleClicked;
     }
 
@@ -52,7 +54,7 @@ public class ContradictionChecker : MonoBehaviour
         resultText.text = string.Empty;
     }
 
-    private void OnSectionClicked(NewsSectionView view)
+    private void OnSectionClicked(SectionView view)
     {
         if (resetRoutine != null)
         {

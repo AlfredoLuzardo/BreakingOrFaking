@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Day1
   m_EditorClassIdentifier: Assembly-CSharp::DayData
   dayNumber: 1
-  newsItems:
-  - {fileID: 11400000, guid: e87eda78e4f49fd4a8decf2504771f30, type: 2}
-  - {fileID: 11400000, guid: 35a17d39c56323440a3e0393929afe4b, type: 2}
-  - {fileID: 11400000, guid: bc5e9cdaeb38e754d9735e9dfe9782bc, type: 2}
-  - {fileID: 11400000, guid: ada8610104c1cd14aaf328db551b3926, type: 2}
+  items:
+  - {fileID: 11400000, guid: b9d5e65ff4bd42688b61f16524012b11, type: 2}
+  - {fileID: 11400000, guid: 22f4ac3735824ea592df3ad0698d7932, type: 2}
+  - {fileID: 11400000, guid: 372e105765274489ab0cbd13449d52a3, type: 2}
+  - {fileID: 11400000, guid: 49c44e235d0344fcaf6dd53361be0144, type: 2}
   rules:
   - {fileID: 11400000, guid: 121be6b78ef3df14bbf7cd5de6115dcb, type: 2}
   - {fileID: 11400000, guid: 43aa17fd071d9314b85104a320460df7, type: 2}

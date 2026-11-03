@@ -12,36 +12,49 @@ public class ResultRowView : MonoBehaviour
 
     public void Setup(DecisionRecord decision)
     {
-        NewsItemData item = decision.Item;
+        ItemData item = decision.Item;
         background.color = decision.IsCorrect ? correctColor : wrongColor;
 
         StringBuilder text = new StringBuilder();
         text.AppendLine($"<b>{item.Title}</b>");
         text.AppendLine($"You: {(decision.Approved ? "Approved" : "Denied")}     "
-            + $"Answer: {(item.IsReal ? "Real (approve)" : "Fake (deny)")}     "
+            + $"Answer: {(item.IsTrue ? "Real (approve)" : "Fake (deny)")}     "
             + $"<b>{(decision.IsCorrect ? "Correct" : "Wrong")}</b>");
 
-        if (item.IsReal)
+        bool hasExplanation = false;
+        for (int i = 0; i < item.Pages.Count; i++)
         {
-            text.AppendLine("Nothing contradicts the rules.");
-        }
-
-        foreach (NewsSection section in item.Sections)
-        {
-            if (section.IsTrue)
+            PageData page = item.Pages[i];
+            if (page == null)
             {
                 continue;
             }
 
-            if (section.ContradictedRules.Count == 0)
+            foreach (Section section in page.Description)
             {
-                text.AppendLine($"• \"{section.Text}\" is false.");
-            }
+                if (section == null)
+                {
+                    continue;
+                }
 
-            foreach (RuleData rule in section.ContradictedRules)
-            {
-                text.AppendLine($"• \"{section.Text}\" contradicts \"{rule.Text}\"");
+                foreach (RuleData rule in section.ContradictedRules)
+                {
+                    if (rule == null)
+                    {
+                        continue;
+                    }
+
+                    hasExplanation = true;
+                    text.AppendLine($"• Page {i + 1}: \"{section.Text}\" contradicts \"{rule.Text}\"");
+                }
             }
+        }
+
+        if (!hasExplanation)
+        {
+            text.AppendLine(item.IsTrue
+                ? "Nothing contradicts the rules."
+                : "This item should have been denied.");
         }
 
         label.text = text.ToString().TrimEnd();
