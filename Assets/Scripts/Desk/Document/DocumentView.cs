@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Desk.Document;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,9 @@ public class DocumentView : MonoBehaviour
     [SerializeField] private RectTransform sectionContainer;
     [SerializeField] private SectionView sectionPrefab;
     [SerializeField] private TMP_Text messageText;
+    // Leave empty if you want arrangement like before (stack)
+    [SerializeField] private PageArrangement defaultArrangement;
+    
 
     private readonly List<GameObject> contentViews = new List<GameObject>();
     private ScrollRect scrollRect;
@@ -18,6 +22,7 @@ public class DocumentView : MonoBehaviour
     private Button nextPageButton;
     private TMP_Text pageNumberText;
     private ItemData currentItem;
+    private PageArrangement arrangement;
 
     private int CurrentPageIndex { get; set; }
     private int PageCount => currentItem != null ? currentItem.Pages.Count : 0;
@@ -65,19 +70,52 @@ public class DocumentView : MonoBehaviour
             return;
         }
         
+        PageData page = GetCurrentPage();
+        
+        CreateArrangement(page);
         AddItemHeader();
-        AddPageBody(GetCurrentPage());
+        AddPageBody(page);
+        
+        if (arrangement != null)
+        {
+            arrangement.HideEmptyRegions();
+        }
+        
         ScrollToTop(); // Only the curr page scrolls. Every page turn starts at the top.
+    }
+    
+    private void CreateArrangement(PageData page)
+    {
+        PageArrangement prefab = page != null ? page.Arrangement : null;
+        if (prefab == null)
+        {
+            prefab = currentItem.Arrangement;
+        }
+
+        if (prefab == null)
+        {
+            prefab = defaultArrangement;
+        }
+
+        arrangement = null;
+        if (prefab == null)
+        {
+            return;
+        }
+
+        arrangement = Instantiate(prefab, sectionContainer);
+        contentViews.Add(arrangement.gameObject);
     }
     
     private void AddItemHeader()
     {
-        AddText(currentItem.Title, SectionStyle.Title);
+        AddText(currentItem.Title, SectionStyle.Title, PageRegion.Header);
         if (!string.IsNullOrWhiteSpace(currentItem.Date))
         {
-            AddText(FormatDate(currentItem), SectionStyle.Body);
+            AddText(FormatDate(currentItem), SectionStyle.Body, PageRegion.Header);
         }
-        AddImages(currentItem.Author, 72f);
+        float authorHeight = arrangement != null ? arrangement.AuthorImageHeight : 72f;
+        AddImages(currentItem.Author, authorHeight, PageRegion.Header);
     }
     
     private void AddPageBody(PageData page)
@@ -95,15 +133,23 @@ public class DocumentView : MonoBehaviour
             }
         }
 
-        AddImages(page.Images, 220f);
+        float imageHeight = arrangement != null ? arrangement.ImageHeight : 220f;
+        AddImages(page.Images, imageHeight, PageRegion.Media);
     }
     
     private void AddSection(Section section)
     {
-        SectionView view = Instantiate(sectionPrefab, sectionContainer);
+        PageRegion region = section.Region == PageRegion.Auto ? PageRegion.Main : section.Region;
+        SectionView view = Instantiate(sectionPrefab, ParentFor(region));
         view.Setup(section);
         view.Clicked += () => SectionClicked?.Invoke(view);
         contentViews.Add(view.gameObject);
+    }
+    
+    // With no arrangement, everything goes in the one column, like before.
+    private Transform ParentFor(PageRegion region)
+    {
+        return arrangement != null ? arrangement.GetRegion(region) : sectionContainer;
     }
     
     private PageData GetCurrentPage()
@@ -154,14 +200,14 @@ public class DocumentView : MonoBehaviour
         scrollbarRect.offsetMin = new Vector2(scrollbarRect.offsetMin.x, bottom);
     }
 
-    private void AddText(string text, SectionStyle style)
+    private void AddText(string text, SectionStyle style, PageRegion region)
     {
-        SectionView view = Instantiate(sectionPrefab, sectionContainer);
+        SectionView view = Instantiate(sectionPrefab, ParentFor(region));
         view.SetupText(text, style);
         contentViews.Add(view.gameObject);
     }
 
-    private void AddImages(IReadOnlyList<Sprite> sprites, float height)
+    private void AddImages(IReadOnlyList<Sprite> sprites, float height, PageRegion region)
     {
         foreach (Sprite sprite in sprites)
         {
@@ -173,7 +219,7 @@ public class DocumentView : MonoBehaviour
             GameObject imageObject = new GameObject("DocumentImage",
                 typeof(RectTransform), typeof(Image), typeof(LayoutElement));
             imageObject.layer = sectionContainer.gameObject.layer;
-            imageObject.transform.SetParent(sectionContainer, false);
+            imageObject.transform.SetParent(ParentFor(region), false);
             Image image = imageObject.GetComponent<Image>();
             image.sprite = sprite;
             image.preserveAspect = true;
@@ -341,6 +387,7 @@ public class DocumentView : MonoBehaviour
         }
 
         contentViews.Clear();
+        arrangement = null;
         if (scrollRect != null)
         {
             scrollRect.StopMovement();

@@ -12,24 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a65e015ce24ab2bb7cbfd70d3795c2, type: 3}
   m_Name: HarborShuttle
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  title: "Harbor Shuttle Adds Evening Departures"
+  title: Harbor Shuttle Adds Evening Departures
+  arrangement: {fileID: 0}
   pages:
-  - description:
+  - arrangement: {fileID: 4548257927329474019, guid: d3390ca203e420b42b3740b5a2617e27, type: 3}
+    description:
     - style: 1
-      text: "New timetable"
+      region: 0
+      text: New timetable
       contradictedRules: []
     - style: 2
-      text: "From November 2, the Harbor shuttle will run 18 evening departures instead of 12, a 50 percent increase."
+      region: 0
+      text: From November 2, the Harbor shuttle will run 18 evening departures instead
+        of 12, a 50 percent increase.
       contradictedRules: []
-    images: []
-  - description:
+    images:
+    - {fileID: 21300000, guid: 08dbd27c1222d754fa21c065524d555e, type: 3}
+  - arrangement: {fileID: 2547602522072952123, guid: 8092cedf63ec36a48b3d27ca69320817, type: 3}
+    description:
     - style: 1
-      text: "Operator statement"
+      region: 0
+      text: Operator statement
       contradictedRules: []
     - style: 2
-      text: "\"The extra trips begin November 2,\" said service manager Mira Chen. The operator published the same start date in its timetable."
+      region: 4
+      text: '"The extra trips begin November 2," said service manager Mira Chen.
+        The operator published the same start date in its timetable.'
       contradictedRules: []
     images: []
   author: []
-  date: "10312026"
+  date: 10312026
   isTrue: 1

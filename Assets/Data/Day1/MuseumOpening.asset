@@ -12,25 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a65e015ce24ab2bb7cbfd70d3795c2, type: 3}
   m_Name: MuseumOpening
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  title: "Museum Announces Opening Weekend"
+  title: Museum Announces Opening Weekend
+  arrangement: {fileID: 0}
   pages:
-  - description:
+  - arrangement: {fileID: 2424146881905352507, guid: 31da3eea953346148ac6a9bb6d0cd32e, type: 3}
+    description:
     - style: 1
-      text: "Visitor information"
+      region: 0
+      text: Visitor information
       contradictedRules: []
     - style: 2
-      text: "The Riverside Museum opens to the public on November 7. Visitors can buy tickets at the door."
+      region: 0
+      text: The Riverside Museum opens to the public on November 7. Visitors can
+        buy tickets at the door.
       contradictedRules:
       - {fileID: 11400000, guid: 121be6b78ef3df14bbf7cd5de6115dcb, type: 2}
     images: []
-  - description:
+  - arrangement: {fileID: 0}
+    description:
     - style: 1
-      text: "Opening notice"
+      region: 0
+      text: Opening notice
       contradictedRules: []
     - style: 2
-      text: "\"Our first public day is November 14,\" said museum director Elena Park. The museum notice lists November 7 as a staff-only rehearsal."
+      region: 0
+      text: '"Our first public day is November 14," said museum director Elena Park.
+        The museum notice lists November 7 as a staff-only rehearsal.'
       contradictedRules: []
     images: []
   author: []
-  date: "10312026"
+  date: 10312026
   isTrue: 0

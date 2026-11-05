@@ -7,6 +7,7 @@ using UnityEngine;
 public class ItemData : ScriptableObject
 {
     [SerializeField] private string title;
+    [SerializeField] private PageArrangement arrangement;
     [SerializeField] private List<PageData> pages = new List<PageData>();
     [SerializeField] private List<Sprite> author = new List<Sprite>();
     [Tooltip("Publication date as eight digits: MMDDYYYY (for example, 10312026).")]
@@ -15,6 +16,7 @@ public class ItemData : ScriptableObject
     [SerializeField] private bool isTrue = true;
 
     public string Title => title;
+    public PageArrangement Arrangement => arrangement;
     public IReadOnlyList<PageData> Pages => pages;
     public IReadOnlyList<Sprite> Author => author;
     public string Date => date;
