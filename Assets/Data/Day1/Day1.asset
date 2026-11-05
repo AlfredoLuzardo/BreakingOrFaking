@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Day1
   m_EditorClassIdentifier: Assembly-CSharp::DayData
   dayNumber: 1
+  briefing: Welcome to the newsroom. Check every story against the rulebook before
+    you publish it.
   items:
   - {fileID: 11400000, guid: b9d5e65ff4bd42688b61f16524012b11, type: 2}
   - {fileID: 11400000, guid: 22f4ac3735824ea592df3ad0698d7932, type: 2}

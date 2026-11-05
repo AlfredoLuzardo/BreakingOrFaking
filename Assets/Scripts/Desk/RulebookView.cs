@@ -11,7 +11,7 @@ public class RulebookView : MonoBehaviour
 
     public event Action<RuleView> RuleClicked;
 
-    public void Show(IReadOnlyList<RuleData> rules)
+    public void Show(IReadOnlyList<RuleData> rules, ICollection<RuleData> newRules = null)
     {
         foreach (RuleView oldView in ruleViews)
         {
@@ -28,7 +28,7 @@ public class RulebookView : MonoBehaviour
             }
 
             RuleView view = Instantiate(rulePrefab, ruleContainer);
-            view.Setup(rule);
+            view.Setup(rule, newRules != null && newRules.Contains(rule));
             view.Clicked += () => RuleClicked?.Invoke(view);
             ruleViews.Add(view);
         }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b38b30e70624148a32604eaeb44183, type: 3}
+  m_Name: Campaign
+  m_EditorClassIdentifier: Assembly-CSharp::CampaignData
+  days:
+  - {fileID: 11400000, guid: c722522c2095bb44cbdd468a430c53a3, type: 2}
+  - {fileID: 11400000, guid: 66438890fa8f7c944a149f7dee526a42, type: 2}
+  - {fileID: 11400000, guid: 003b722ab74bc294bb84402ec5149516, type: 2}

@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ee9caf2e46eb2419d338c91e67b642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeskController
-  dayData: {fileID: 11400000, guid: c722522c2095bb44cbdd468a430c53a3, type: 2}
+  campaign: {fileID: 11400000, guid: 46a77f45a9c2b3e4caa5505856121a99, type: 2}
   scoringSettings: {fileID: 11400000, guid: fd29200ebb319954a8ff77eeee894dbb, type: 2}
   documentView: {fileID: 789142156}
   rulebookView: {fileID: 1566355040}

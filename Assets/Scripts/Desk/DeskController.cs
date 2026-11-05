@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DeskController : MonoBehaviour
 {
     [Header("Data")]
-    [SerializeField] private DayData dayData;
+    [SerializeField] private CampaignData campaign;
     [SerializeField] private ScoringSettings scoringSettings;
 
     [Header("Desk")]
@@ -30,16 +29,18 @@ public class DeskController : MonoBehaviour
 
     private void Start()
     {
-        GameSession.StartDay(dayData.DayNumber);
+        int dayIndex = GameSession.DayIndex;
+        DayData day = campaign.GetDay(dayIndex);
+        GameSession.BeginDay(day.DayNumber);
 
         approveButton.onClick.AddListener(Approve);
         denyButton.onClick.AddListener(Deny);
         endDayButton.onClick.AddListener(EndDay);
         endDayButton.gameObject.SetActive(false);
 
-        rulebookView.Show(dayData.Rules);
+        rulebookView.Show(day.Rules, campaign.GetAddedRules(dayIndex));
 
-        foreach (ItemData item in dayData.Items)
+        foreach (ItemData item in day.Items)
         {
             if (item != null)
             {
@@ -72,7 +73,7 @@ public class DeskController : MonoBehaviour
         int points = decision.IsCorrect ? scoringSettings.CorrectDecisionPoints : scoringSettings.WrongDecisionPoints;
         GameSession.AddDecision(decision, points);
 
-        Debug.Log($"{(approved ? "Approved" : "Denied")} \"{currentItem.name}\": {(decision.IsCorrect ? "correct" : "wrong")}. Score: {GameSession.Score}");
+        Debug.Log($"{(approved ? "Approved" : "Denied")} \"{currentItem.name}\": {(decision.IsCorrect ? "correct" : "wrong")}. Score: {GameSession.DayScore}");
 
         UpdateScoreText();
         ShowNextItem();
@@ -98,11 +99,12 @@ public class DeskController : MonoBehaviour
 
     private void EndDay()
     {
-        SceneManager.LoadScene(resultsSceneName);
+        GameSession.FinishDay();
+        SceneTransition.LoadScene(resultsSceneName);
     }
 
     private void UpdateScoreText()
     {
-        scoreText.text = $"Score: {GameSession.Score}";
+        scoreText.text = $"Day {GameSession.DayNumber}    Score: {GameSession.DayScore}";
     }
 }
