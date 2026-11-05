@@ -41,6 +41,11 @@ public static class GameSession
         DayScore += points;
     }
 
+    public static void AddPoints(int points)
+    {
+        DayScore += points;
+    }
+
     public static void FinishDay()
     {
         TotalScore += DayScore;

@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e291d8c78dbcb4ebff92ab32625f69, type: 3}
   m_Name: ScoringSettings
   m_EditorClassIdentifier: Assembly-CSharp::ScoringSettings
-  correctDecisionPoints: 1
-  wrongDecisionPoints: -1
+  correctDecisionPoints: 100
+  wrongDecisionPoints: -50
+  contradictionFoundPoints: 25
+  wrongCheckPoints: -10
+  freeWrongChecksPerDay: 3
