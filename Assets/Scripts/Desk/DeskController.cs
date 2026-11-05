@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,12 +22,14 @@ public class DeskController : MonoBehaviour
     [SerializeField] private Button denyButton;
     [SerializeField] private Button endDayButton;
     [SerializeField] private string resultsSceneName = "Results";
+    [SerializeField] private DocumentStamp documentStamp;
 
     [Header("Score")]
     [SerializeField] private TMP_Text scoreText;
 
     private readonly Queue<ItemData> queue = new Queue<ItemData>();
     private ItemData currentItem;
+    private bool isStamping;
 
     private void Start()
     {
@@ -63,7 +66,7 @@ public class DeskController : MonoBehaviour
 
     private void Decide(bool approved)
     {
-        if (currentItem == null)
+        if (currentItem == null || isStamping)
         {
             return;
         }
@@ -75,7 +78,15 @@ public class DeskController : MonoBehaviour
         Debug.Log($"{(approved ? "Approved" : "Denied")} \"{currentItem.name}\": {(decision.IsCorrect ? "correct" : "wrong")}. Score: {GameSession.Score}");
 
         UpdateScoreText();
-        ShowNextItem();
+        
+        if (documentStamp != null)
+        {
+            StartCoroutine(StampThenShowNext(approved));
+        }
+        else
+        {
+            ShowNextItem();
+        }
     }
 
     private void ShowNextItem()
@@ -94,6 +105,26 @@ public class DeskController : MonoBehaviour
 
         currentItem = queue.Dequeue();
         documentView.Show(currentItem);
+    }
+    
+    private IEnumerator StampThenShowNext(bool approved)
+    {
+        isStamping = true;
+        SetDecisionButtonsInteractable(false);
+        contradictionChecker.Clear();
+
+        yield return documentStamp.Play(approved);
+
+        documentStamp.Hide();
+        SetDecisionButtonsInteractable(true);
+        isStamping = false;
+        ShowNextItem();
+    }
+    
+    private void SetDecisionButtonsInteractable(bool interactable)
+    {
+        approveButton.interactable = interactable;
+        denyButton.interactable = interactable;
     }
 
     private void EndDay()
