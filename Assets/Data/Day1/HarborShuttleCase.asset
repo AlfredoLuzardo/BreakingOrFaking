@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: HarborShuttleCase
   m_EditorClassIdentifier: Assembly-CSharp::StoryCase
   article: {fileID: 11400000, guid: b9d5e65ff4bd42688b61f16524012b11, type: 2}
-  evidence: []
+  evidence:
+  - {fileID: 11400000, guid: 67337059dfcea9840bbc1dc2aa10c562, type: 2}
   isTrue: 1
