@@ -12,14 +12,15 @@ public class DocumentView : MonoBehaviour
 
     private readonly List<GameObject> contentViews = new List<GameObject>();
     private ScrollRect scrollRect;
+    private Scrollbar verticalScrollbar; // Only shows when the page doesn't fit.
     private RectTransform pageNavigation;
     private Button previousPageButton;
     private Button nextPageButton;
     private TMP_Text pageNumberText;
     private ItemData currentItem;
 
-    public int CurrentPageIndex { get; private set; }
-    public int PageCount => currentItem != null ? currentItem.Pages.Count : 0;
+    private int CurrentPageIndex { get; set; }
+    private int PageCount => currentItem != null ? currentItem.Pages.Count : 0;
 
     public event Action<SectionView> SectionClicked;
     public event Action ContentCleared;
@@ -32,12 +33,12 @@ public class DocumentView : MonoBehaviour
         ShowCurrentPage();
     }
 
-    public void PreviousPage()
+    private void PreviousPage()
     {
         SetPage(CurrentPageIndex - 1);
     }
 
-    public void NextPage()
+    private void NextPage()
     {
         SetPage(CurrentPageIndex + 1);
     }
@@ -63,38 +64,63 @@ public class DocumentView : MonoBehaviour
         {
             return;
         }
-
+        
+        AddItemHeader();
+        AddPageBody(GetCurrentPage());
+        ScrollToTop(); // Only the curr page scrolls. Every page turn starts at the top.
+    }
+    
+    private void AddItemHeader()
+    {
         AddText(currentItem.Title, SectionStyle.Title);
         if (!string.IsNullOrWhiteSpace(currentItem.Date))
         {
-            string dateText = currentItem.TryGetDate(out DateTime date)
-                ? date.ToString("MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture)
-                : currentItem.Date;
-            AddText(dateText, SectionStyle.Body);
+            AddText(FormatDate(currentItem), SectionStyle.Body);
         }
-
         AddImages(currentItem.Author, 72f);
-
-        PageData page = PageCount > 0 ? currentItem.Pages[CurrentPageIndex] : null;
-        if (page != null)
+    }
+    
+    private void AddPageBody(PageData page)
+    {
+        if (page == null)
         {
-            foreach (Section section in page.Description)
-            {
-                if (section == null)
-                {
-                    continue;
-                }
-
-                SectionView view = Instantiate(sectionPrefab, sectionContainer);
-                view.Setup(section);
-                view.Clicked += () => SectionClicked?.Invoke(view);
-                contentViews.Add(view.gameObject);
-            }
-
-            AddImages(page.Images, 220f);
+            return;
         }
 
-        // Only the current page scrolls. Every page turn starts at the top.
+        foreach (Section section in page.Description)
+        {
+            if (section != null)
+            {
+                AddSection(section);
+            }
+        }
+
+        AddImages(page.Images, 220f);
+    }
+    
+    private void AddSection(Section section)
+    {
+        SectionView view = Instantiate(sectionPrefab, sectionContainer);
+        view.Setup(section);
+        view.Clicked += () => SectionClicked?.Invoke(view);
+        contentViews.Add(view.gameObject);
+    }
+    
+    private PageData GetCurrentPage()
+    {
+        return PageCount > 0 ? currentItem.Pages[CurrentPageIndex] : null;
+    }
+
+    
+    private static string FormatDate(ItemData item)
+    {
+        return item.TryGetDate(out DateTime date)
+            ? date.ToString("MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture)
+            : item.Date;
+    }
+
+    private void ScrollToTop()
+    {
         Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(sectionContainer);
         scrollRect.StopMovement();
@@ -122,7 +148,10 @@ public class DocumentView : MonoBehaviour
         previousPageButton.interactable = CurrentPageIndex > 0;
         nextPageButton.interactable = CurrentPageIndex + 1 < PageCount;
         pageNumberText.text = PageCount > 0 ? $"Page {CurrentPageIndex + 1} / {PageCount}" : string.Empty;
-        scrollRect.viewport.offsetMin = new Vector2(30f, hasMultiplePages ? 96f : 30f);
+        float bottom = hasMultiplePages ? 96f : 30f;
+        scrollRect.viewport.offsetMin = new Vector2(30f, bottom);
+        RectTransform scrollbarRect = (RectTransform)verticalScrollbar.transform;
+        scrollbarRect.offsetMin = new Vector2(scrollbarRect.offsetMin.x, bottom);
     }
 
     private void AddText(string text, SectionStyle style)
@@ -192,8 +221,52 @@ public class DocumentView : MonoBehaviour
         scrollRect.vertical = true;
         scrollRect.movementType = ScrollRect.MovementType.Clamped;
         scrollRect.scrollSensitivity = 35f;
-
+        
+        CreateScrollBar();
         CreatePageNavigation();
+    }
+
+    private void CreateScrollBar()
+    {
+        GameObject scrollbarObject = new GameObject("DocumentScrollbar",
+            typeof(RectTransform), typeof(Image), typeof(Scrollbar));
+        scrollbarObject.layer = gameObject.layer;
+        RectTransform rect = (RectTransform)scrollbarObject.transform;
+        rect.SetParent(transform, false);
+        rect.anchorMin = new Vector2(1f, 0f);
+        rect.anchorMax = Vector2.one;
+        rect.pivot = new Vector2(1f, 0.5f);
+        rect.offsetMin = new Vector2(-24f, 96f); // 12px wide, 12px in from the right edge
+        rect.offsetMax = new Vector2(-12f, -30f);
+
+        Image track = scrollbarObject.GetComponent<Image>();
+        track.color = new Color(0f, 0f, 0f, 0.1f);
+
+        RectTransform slidingArea = CreateStretchedChild("SlidingArea", rect);
+        RectTransform handle = CreateStretchedChild("Handle", slidingArea);
+        Image handleImage = handle.gameObject.AddComponent<Image>();
+        handleImage.color = new Color(0.16f, 0.24f, 0.25f, 0.85f); // matches the page buttons
+
+        verticalScrollbar = scrollbarObject.GetComponent<Scrollbar>();
+        verticalScrollbar.handleRect = handle;
+        verticalScrollbar.targetGraphic = handleImage;
+        verticalScrollbar.direction = Scrollbar.Direction.BottomToTop;
+
+        scrollRect.verticalScrollbar = verticalScrollbar;
+        scrollRect.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHide;
+    }
+    
+    private RectTransform CreateStretchedChild(string name, Transform parent)
+    {
+        GameObject child = new GameObject(name, typeof(RectTransform));
+        child.layer = gameObject.layer;
+        RectTransform rect = (RectTransform)child.transform;
+        rect.SetParent(parent, false);
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+        return rect;
     }
 
     private void CreatePageNavigation()
