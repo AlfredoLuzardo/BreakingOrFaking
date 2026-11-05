@@ -5,10 +5,10 @@ using UnityEngine;
 public class DayData : ScriptableObject
 {
     [SerializeField] private int dayNumber = 1;
-    [SerializeField] private List<ItemData> items = new List<ItemData>();
+    [SerializeField] private List<StoryCase> cases = new List<StoryCase>();
     [SerializeField] private List<RuleData> rules = new List<RuleData>();
 
     public int DayNumber => dayNumber;
-    public IReadOnlyList<ItemData> Items => items;
+    public IReadOnlyList<StoryCase> Cases => cases;
     public IReadOnlyList<RuleData> Rules => rules;
 }

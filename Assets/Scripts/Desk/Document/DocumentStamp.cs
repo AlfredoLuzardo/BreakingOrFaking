@@ -4,13 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // Slams an APPROVED / SPIKED stamp onto the document, plays a thud and jolts the page.
-// The stamp is built in code, so no prefab is needed.
 public class DocumentStamp : MonoBehaviour
 {
     [Header("Where")]
-    [Tooltip("The document panel the stamp lands on (the Document object). It also jolts when stamped.")]
+    [Tooltip("The document panel the stamp lands on. It also jolts when stamped.")]
     [SerializeField] private RectTransform document;
-    [Tooltip("Font for the stamp text. Leave empty to use TextMeshPro's default font.")]
+    [Tooltip("Leave empty to use TextMeshPro's default font.")]
     [SerializeField] private TMP_FontAsset font;
 
     [Header("Look")]
@@ -50,22 +49,8 @@ public class DocumentStamp : MonoBehaviour
     public IEnumerator Play(bool approved)
     {
         EnsureBuilt();
-
-        string text = approved ? approvedText : deniedText;
-        Color color = approved ? approvedColor : deniedColor;
-        stampLabel.text = text;
-        stampLabel.color = color;
-        foreach (Image border in borders)
-        {
-            border.color = color;
-        }
-
-        stamp.sizeDelta = stampLabel.GetPreferredValues(text) + padding;
-        stamp.anchoredPosition = new Vector2(
-            Random.Range(-maxOffset.x, maxOffset.x),
-            Random.Range(-maxOffset.y, maxOffset.y));
-        stamp.localRotation = Quaternion.Euler(0f, 0f, Random.Range(-maxRotation, maxRotation));
-        stamp.SetAsLastSibling(); // draw on top of the page
+        ApplyLook(approved);
+        PlaceRandomly();
         stamp.gameObject.SetActive(true);
 
         yield return Slam();
@@ -82,7 +67,30 @@ public class DocumentStamp : MonoBehaviour
         }
     }
 
-    // Starts big and see-through, then drops to full size and full colour.
+    private void ApplyLook(bool approved)
+    {
+        string text = approved ? approvedText : deniedText;
+        Color color = approved ? approvedColor : deniedColor;
+
+        stampLabel.text = text;
+        stampLabel.color = color;
+        foreach (Image border in borders)
+        {
+            border.color = color;
+        }
+
+        stamp.sizeDelta = stampLabel.GetPreferredValues(text) + padding;
+    }
+
+    private void PlaceRandomly()
+    {
+        stamp.anchoredPosition = new Vector2(
+            Random.Range(-maxOffset.x, maxOffset.x),
+            Random.Range(-maxOffset.y, maxOffset.y));
+        stamp.localRotation = Quaternion.Euler(0f, 0f, Random.Range(-maxRotation, maxRotation));
+        stamp.SetAsLastSibling();
+    }
+
     private IEnumerator Slam()
     {
         for (float time = 0f; time < slamDuration; time += Time.deltaTime)
@@ -97,7 +105,6 @@ public class DocumentStamp : MonoBehaviour
         stampGroup.alpha = 1f;
     }
 
-    // The page squashes slightly and springs back, like it was hit.
     private IEnumerator Thump()
     {
         if (document == null || Mathf.Approximately(thumpScale, 1f))
@@ -108,8 +115,7 @@ public class DocumentStamp : MonoBehaviour
         Vector3 original = document.localScale;
         for (float time = 0f; time < thumpDuration; time += Time.deltaTime)
         {
-            float progress = time / thumpDuration;
-            float squash = Mathf.Sin(progress * Mathf.PI); // 0 -> 1 -> 0
+            float squash = Mathf.Sin(time / thumpDuration * Mathf.PI);
             document.localScale = original * Mathf.Lerp(1f, thumpScale, squash);
             yield return null;
         }
@@ -125,7 +131,7 @@ public class DocumentStamp : MonoBehaviour
             return;
         }
 
-        audioSource.pitch = Random.Range(0.95f, 1.05f); // stops repeated stamps sounding identical
+        audioSource.pitch = Random.Range(0.95f, 1.05f);
         audioSource.PlayOneShot(clip);
     }
 
@@ -136,69 +142,89 @@ public class DocumentStamp : MonoBehaviour
             return;
         }
 
-        RectTransform parent = document != null ? document : (RectTransform)transform;
-
-        GameObject stampObject = new GameObject("Stamp",
-            typeof(RectTransform), typeof(CanvasGroup), typeof(LayoutElement));
-        stampObject.layer = parent.gameObject.layer;
-        stamp = (RectTransform)stampObject.transform;
-        stamp.SetParent(parent, false);
-        stamp.anchorMin = new Vector2(0.5f, 0.5f);
-        stamp.anchorMax = new Vector2(0.5f, 0.5f);
-        stamp.pivot = new Vector2(0.5f, 0.5f);
-
-        // Never blocks clicks, and never gets pushed around by a layout group.
-        stampGroup = stampObject.GetComponent<CanvasGroup>();
-        stampGroup.blocksRaycasts = false;
-        stampGroup.interactable = false;
-        stampObject.GetComponent<LayoutElement>().ignoreLayout = true;
-
-        GameObject labelObject = new GameObject("Label", typeof(RectTransform), typeof(TextMeshProUGUI));
-        labelObject.layer = stampObject.layer;
-        RectTransform labelRect = (RectTransform)labelObject.transform;
-        labelRect.SetParent(stamp, false);
-        labelRect.anchorMin = Vector2.zero;
-        labelRect.anchorMax = Vector2.one;
-        labelRect.offsetMin = Vector2.zero;
-        labelRect.offsetMax = Vector2.zero;
-
-        stampLabel = labelObject.GetComponent<TMP_Text>();
-        if (font != null)
-        {
-            stampLabel.font = font;
-        }
-
-        stampLabel.fontSize = fontSize;
-        stampLabel.fontStyle = FontStyles.Bold;
-        stampLabel.characterSpacing = 8f;
-        stampLabel.alignment = TextAlignmentOptions.Center;
-        stampLabel.raycastTarget = false;
-
-        float t = borderThickness;
-        borders = new[]
-        {
-            CreateBorder("Top", new Vector2(0f, 1f), new Vector2(1f, 1f), new Vector2(0f, -t), Vector2.zero),
-            CreateBorder("Bottom", Vector2.zero, new Vector2(1f, 0f), Vector2.zero, new Vector2(0f, t)),
-            CreateBorder("Left", Vector2.zero, new Vector2(0f, 1f), Vector2.zero, new Vector2(t, 0f)),
-            CreateBorder("Right", new Vector2(1f, 0f), Vector2.one, new Vector2(-t, 0f), Vector2.zero),
-        };
-
-        stampObject.SetActive(false);
+        stamp = CreateStampRoot(document != null ? document : (RectTransform)transform);
+        stampLabel = CreateLabel(stamp);
+        borders = CreateBorders(stamp);
+        stamp.gameObject.SetActive(false);
     }
 
-    private Image CreateBorder(string name, Vector2 anchorMin, Vector2 anchorMax, Vector2 offsetMin, Vector2 offsetMax)
+    private RectTransform CreateStampRoot(RectTransform parent)
     {
-        GameObject borderObject = new GameObject(name, typeof(RectTransform), typeof(Image));
-        borderObject.layer = stamp.gameObject.layer;
-        RectTransform rect = (RectTransform)borderObject.transform;
-        rect.SetParent(stamp, false);
+        RectTransform root = CreateChild("Stamp", parent, typeof(CanvasGroup), typeof(LayoutElement));
+        root.anchorMin = new Vector2(0.5f, 0.5f);
+        root.anchorMax = new Vector2(0.5f, 0.5f);
+        root.pivot = new Vector2(0.5f, 0.5f);
+
+        // Never blocks clicks, and never gets pushed around by a layout group.
+        stampGroup = root.GetComponent<CanvasGroup>();
+        stampGroup.blocksRaycasts = false;
+        stampGroup.interactable = false;
+        root.GetComponent<LayoutElement>().ignoreLayout = true;
+        return root;
+    }
+
+    private TMP_Text CreateLabel(RectTransform parent)
+    {
+        RectTransform rect = CreateChild("Label", parent, typeof(TextMeshProUGUI));
+        SetAnchors(rect, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+
+        TMP_Text label = rect.GetComponent<TMP_Text>();
+        if (font != null)
+        {
+            label.font = font;
+        }
+
+        label.fontSize = fontSize;
+        label.fontStyle = FontStyles.Bold;
+        label.characterSpacing = 8f;
+        label.alignment = TextAlignmentOptions.Center;
+        label.raycastTarget = false;
+        return label;
+    }
+
+    private Image[] CreateBorders(RectTransform parent)
+    {
+        float t = borderThickness;
+        return new[]
+        {
+            CreateBorder("Top", parent, new Vector2(0f, 1f), Vector2.one, new Vector2(0f, -t), Vector2.zero),
+            CreateBorder("Bottom", parent, Vector2.zero, new Vector2(1f, 0f), Vector2.zero, new Vector2(0f, t)),
+            CreateBorder("Left", parent, Vector2.zero, new Vector2(0f, 1f), Vector2.zero, new Vector2(t, 0f)),
+            CreateBorder("Right", parent, new Vector2(1f, 0f), Vector2.one, new Vector2(-t, 0f), Vector2.zero),
+        };
+    }
+
+    private static Image CreateBorder(string name, RectTransform parent,
+        Vector2 anchorMin, Vector2 anchorMax, Vector2 offsetMin, Vector2 offsetMax)
+    {
+        RectTransform rect = CreateChild(name, parent, typeof(Image));
+        SetAnchors(rect, anchorMin, anchorMax, offsetMin, offsetMax);
+
+        Image image = rect.GetComponent<Image>();
+        image.raycastTarget = false;
+        return image;
+    }
+
+    private static RectTransform CreateChild(string name, Transform parent, params System.Type[] components)
+    {
+        GameObject child = new GameObject(name, typeof(RectTransform));
+        child.layer = parent.gameObject.layer;
+        foreach (System.Type component in components)
+        {
+            child.AddComponent(component);
+        }
+
+        RectTransform rect = (RectTransform)child.transform;
+        rect.SetParent(parent, false);
+        return rect;
+    }
+
+    private static void SetAnchors(RectTransform rect, Vector2 anchorMin, Vector2 anchorMax,
+        Vector2 offsetMin, Vector2 offsetMax)
+    {
         rect.anchorMin = anchorMin;
         rect.anchorMax = anchorMax;
         rect.offsetMin = offsetMin;
         rect.offsetMax = offsetMax;
-
-        Image image = borderObject.GetComponent<Image>();
-        image.raycastTarget = false;
-        return image;
     }
 }

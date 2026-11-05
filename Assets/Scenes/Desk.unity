@@ -540,9 +540,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4990d19362b6c9b4dba83892da60e156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DocumentView
-  sectionContainer: {fileID: 868210683}
   sectionPrefab: {fileID: 1469249511631993671, guid: 9209e2580d44ec3428cf00f9ecf2574b, type: 3}
+  sectionContainer: {fileID: 868210683}
   messageText: {fileID: 1928237384}
+  defaultArrangement: {fileID: 0}
 --- !u!114 &789142157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,7 +607,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DeskController
   dayData: {fileID: 11400000, guid: c722522c2095bb44cbdd468a430c53a3, type: 2}
   scoringSettings: {fileID: 11400000, guid: fd29200ebb319954a8ff77eeee894dbb, type: 2}
-  documentView: {fileID: 789142156}
+  articleView: {fileID: 789142156}
+  evidenceArea: {fileID: 1922139636}
+  evidenceViewPrefabs:
+  - {fileID: 3264549467620400150, guid: 8446e5f1b1462864589e7120b66dd154, type: 3}
   rulebookView: {fileID: 1566355040}
   contradictionChecker: {fileID: 817864637}
   noMoreNewsMessage: No more news
@@ -643,7 +647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7901ba003c4bbe488af4d83dcfd5c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContradictionChecker
-  documentView: {fileID: 789142156}
   rulebookView: {fileID: 1566355040}
   resultText: {fileID: 542239129}
   resultDuration: 2
@@ -886,6 +889,7 @@ RectTransform:
   - {fileID: 1566355037}
   - {fileID: 542239131}
   - {fileID: 1973093508}
+  - {fileID: 1922139636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2396,6 +2400,68 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1922139635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1922139636}
+  - component: {fileID: 1922139637}
+  m_Layer: 5
+  m_Name: EvidenceArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1922139636
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922139635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 972048457}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 60}
+  m_SizeDelta: {x: 550, y: 700}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &1922139637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922139635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1928237382
 GameObject:
   m_ObjectHideFlags: 0

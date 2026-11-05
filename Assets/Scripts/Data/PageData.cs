@@ -22,7 +22,7 @@ public class Section
     [SerializeField] private PageRegion region = PageRegion.Auto;
     [TextArea(2, 6)]
     [SerializeField] private string text;
-    [Tooltip("Rules this section violates. The item's Is True flag determines the final answer.")]
+    [Tooltip("Rules this section violates. The case's Is True flag determines the final answer.")]
     [SerializeField] private List<RuleData> contradictedRules = new List<RuleData>();
 
     public SectionStyle Style => style;

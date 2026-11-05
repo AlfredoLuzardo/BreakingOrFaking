@@ -12,25 +12,34 @@ public class ResultRowView : MonoBehaviour
 
     public void Setup(DecisionRecord decision)
     {
-        ItemData item = decision.Item;
         background.color = decision.IsCorrect ? correctColor : wrongColor;
 
         StringBuilder text = new StringBuilder();
-        text.AppendLine($"<b>{item.Title}</b>");
-        text.AppendLine($"You: {(decision.Approved ? "Approved" : "Denied")}     "
-            + $"Answer: {(item.IsTrue ? "Real (approve)" : "Fake (deny)")}     "
-            + $"<b>{(decision.IsCorrect ? "Correct" : "Wrong")}</b>");
-
-        bool hasExplanation = false;
-        for (int i = 0; i < item.Pages.Count; i++)
+        AppendSummary(text, decision);
+        if (!AppendContradictions(text, decision.Case))
         {
-            PageData page = item.Pages[i];
-            if (page == null)
-            {
-                continue;
-            }
+            text.AppendLine(decision.Case.IsTrue
+                ? "Nothing contradicts the rules."
+                : "This story should have been denied.");
+        }
 
-            foreach (Section section in page.Description)
+        label.text = text.ToString().TrimEnd();
+    }
+
+    private static void AppendSummary(StringBuilder text, DecisionRecord decision)
+    {
+        text.AppendLine($"<b>{decision.Case.Title}</b>");
+        text.AppendLine($"You: {(decision.Approved ? "Approved" : "Denied")}     "
+            + $"Answer: {(decision.Case.IsTrue ? "Real (approve)" : "Fake (deny)")}     "
+            + $"<b>{(decision.IsCorrect ? "Correct" : "Wrong")}</b>");
+    }
+
+    private static bool AppendContradictions(StringBuilder text, StoryCase storyCase)
+    {
+        bool found = false;
+        foreach (DocumentData document in storyCase.AllDocuments())
+        {
+            foreach (Section section in document.GetSections())
             {
                 if (section == null)
                 {
@@ -39,24 +48,15 @@ public class ResultRowView : MonoBehaviour
 
                 foreach (RuleData rule in section.ContradictedRules)
                 {
-                    if (rule == null)
+                    if (rule != null)
                     {
-                        continue;
+                        found = true;
+                        text.AppendLine($"• {document.DescribeLocation(section)}: \"{section.Text}\" contradicts \"{rule.Text}\"");
                     }
-
-                    hasExplanation = true;
-                    text.AppendLine($"• Page {i + 1}: \"{section.Text}\" contradicts \"{rule.Text}\"");
                 }
             }
         }
 
-        if (!hasExplanation)
-        {
-            text.AppendLine(item.IsTrue
-                ? "Nothing contradicts the rules."
-                : "This item should have been denied.");
-        }
-
-        label.text = text.ToString().TrimEnd();
+        return found;
     }
 }

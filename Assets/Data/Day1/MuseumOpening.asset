@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a65e015ce24ab2bb7cbfd70d3795c2, type: 3}
   m_Name: MuseumOpening
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  date: 10312026
   title: Museum Announces Opening Weekend
   arrangement: {fileID: 0}
   pages:
-  - arrangement: {fileID: 2424146881905352507, guid: 31da3eea953346148ac6a9bb6d0cd32e, type: 3}
+  - arrangement: {fileID: 2547602522072952123, guid: 8092cedf63ec36a48b3d27ca69320817, type: 3}
     description:
     - style: 1
       region: 0
       text: Visitor information
       contradictedRules: []
     - style: 2
-      region: 0
+      region: 4
       text: The Riverside Museum opens to the public on November 7. Visitors can
         buy tickets at the door.
       contradictedRules:
@@ -41,5 +42,3 @@ MonoBehaviour:
       contradictedRules: []
     images: []
   author: []
-  date: 10312026
-  isTrue: 0
