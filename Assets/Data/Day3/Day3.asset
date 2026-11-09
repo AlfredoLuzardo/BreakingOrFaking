@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cab18934bd2a6b478004293f52f093b, type: 3}
+  m_Name: Day3
+  m_EditorClassIdentifier: Assembly-CSharp::DayData
+  dayNumber: 3
+  briefing: Placeholder day. Anonymous quotes are allowed again, but headlines are
+    under review.
+  items:
+  - {fileID: 11400000, guid: 22f4ac3735824ea592df3ad0698d7932, type: 2}
+  - {fileID: 11400000, guid: 372e105765274489ab0cbd13449d52a3, type: 2}
+  rules:
+  - {fileID: 11400000, guid: 121be6b78ef3df14bbf7cd5de6115dcb, type: 2}
+  - {fileID: 11400000, guid: 43aa17fd071d9314b85104a320460df7, type: 2}
+  - {fileID: 11400000, guid: 709207dc2eed8954e91da835ad28cbd0, type: 2}
+  - {fileID: 11400000, guid: 58da07884ea93264db203735909ff00e, type: 2}

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -9,7 +8,7 @@ public class TitleScreen : MonoBehaviour
     [SerializeField] private Button settingsBtn;
     [SerializeField] private Button quitBtn;
     
-    [SerializeField] private string deskScene = "Desk"; 
+    [SerializeField] private string briefingScene = "Briefing";
     [SerializeField] private string settingsScene = "Settings";
 
     private void Start()
@@ -21,12 +20,13 @@ public class TitleScreen : MonoBehaviour
 
     private void StartDay()
     {
-        SceneManager.LoadScene(deskScene);
+        GameSession.StartNewGame();
+        SceneTransition.LoadScene(briefingScene, $"DAY {GameSession.DayIndex + 1}");
     }
 
     private void Settings()
     {
-        SceneManager.LoadScene(settingsScene);
+        SceneTransition.LoadScene(settingsScene);
     }
 
     private static void Quit()

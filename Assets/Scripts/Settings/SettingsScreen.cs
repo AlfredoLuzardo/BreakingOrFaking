@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
@@ -30,7 +29,7 @@ public class Settings : MonoBehaviour
     private void BackToTitle()
     {
         PlayerPrefs.Save();
-        SceneManager.LoadScene(titleScene);
+        SceneTransition.LoadScene(titleScene);
     }
 
     private void SetVolume(float value)

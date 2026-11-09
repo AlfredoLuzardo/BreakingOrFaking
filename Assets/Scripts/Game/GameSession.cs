@@ -1,24 +1,58 @@
 using System.Collections.Generic;
+using UnityEngine;
 
-// Holds the current day's decisions and score between scenes.
+// Holds the current day, its decisions and the scores between scenes.
 public static class GameSession
 {
     private static readonly List<DecisionRecord> decisions = new List<DecisionRecord>();
 
+    public static int DayIndex { get; private set; }
     public static int DayNumber { get; private set; }
-    public static int Score { get; private set; }
+    public static int DayScore { get; private set; }
+    public static int TotalScore { get; private set; }
     public static IReadOnlyList<DecisionRecord> Decisions => decisions;
 
-    public static void StartDay(int dayNumber)
+    // Resets the session each time Play mode starts.
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetOnPlay()
+    {
+        StartNewGame();
+    }
+
+    public static void StartNewGame()
+    {
+        DayIndex = 0;
+        DayNumber = 0;
+        DayScore = 0;
+        TotalScore = 0;
+        decisions.Clear();
+    }
+
+    public static void BeginDay(int dayNumber)
     {
         DayNumber = dayNumber;
-        Score = 0;
+        DayScore = 0;
         decisions.Clear();
     }
 
     public static void AddDecision(DecisionRecord decision, int points)
     {
         decisions.Add(decision);
-        Score += points;
+        DayScore += points;
+    }
+
+    public static void AddPoints(int points)
+    {
+        DayScore += points;
+    }
+
+    public static void FinishDay()
+    {
+        TotalScore += DayScore;
+    }
+
+    public static void AdvanceToNextDay()
+    {
+        DayIndex++;
     }
 }

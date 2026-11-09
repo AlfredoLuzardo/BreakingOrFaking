@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class ContradictionChecker : MonoBehaviour
     private SectionView selectedSection;
     private RuleView selectedRule;
     private Coroutine resetRoutine;
+
+    public event Action<SectionView, RuleView, bool> Checked;
 
     private void OnEnable()
     {
@@ -103,6 +106,7 @@ public class ContradictionChecker : MonoBehaviour
         resultText.text = contradicts ? contradictsMessage : noContradictionMessage;
         resultText.color = contradicts ? contradictsColor : noContradictionColor;
         resetRoutine = StartCoroutine(ResetAfterDelay());
+        Checked?.Invoke(selectedSection, selectedRule, contradicts);
     }
 
     private IEnumerator ResetAfterDelay()
