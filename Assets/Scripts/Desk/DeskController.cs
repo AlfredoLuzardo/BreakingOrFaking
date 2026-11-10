@@ -241,8 +241,8 @@ public class DeskController : MonoBehaviour
 
     private void UpdateNewsRemainingText()
     {
-        int decided = GameSession.Decisions.Count;
-        newsRemainingText.text = $"News: {decided}/{decided + NewsRemaining}";
+        int remaining = NewsRemaining;
+        newsRemainingText.text = $"News: {remaining}";
     }
 
     private void UpdateTimeText()

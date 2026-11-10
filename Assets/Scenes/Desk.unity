@@ -938,6 +938,7 @@ GameObject:
   m_Component:
   - component: {fileID: 817864636}
   - component: {fileID: 817864635}
+  - component: {fileID: 817864638}
   - component: {fileID: 817864637}
   m_Layer: 0
   m_Name: DeskController
@@ -983,6 +984,22 @@ MonoBehaviour:
   pointsLostColor: {r: 0.95, g: 0.35, b: 0.3, a: 1}
   popupDuration: 1
   popupRise: 30
+--- !u!114 &817864638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817864634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d1cc5105e34ed59b042aeb241c7215, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::InspectionTools
+  articleView: {fileID: 789142156}
+  font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  magnification: 2
+  lensDiameter: 240
 --- !u!4 &817864636
 Transform:
   m_ObjectHideFlags: 0
