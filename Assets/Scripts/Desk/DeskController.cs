@@ -246,7 +246,8 @@ public class DeskController : MonoBehaviour
         {
             if (foundContradictions.Add((section.Section, rule.Rule)))
             {
-                AddPoints(scoringSettings.ContradictionFoundPoints);
+                GameSession.AddContradictionFound(scoringSettings.ContradictionFoundPoints);
+                ShowPoints(scoringSettings.ContradictionFoundPoints);
             }
 
             return;
@@ -255,15 +256,13 @@ public class DeskController : MonoBehaviour
         wrongChecks++;
         UpdateChecksText();
 
-        if (wrongChecks > scoringSettings.FreeWrongChecksPerDay)
-        {
-            AddPoints(scoringSettings.WrongCheckPoints);
-        }
+        int penalty = wrongChecks > scoringSettings.FreeWrongChecksPerDay ? scoringSettings.WrongCheckPoints : 0;
+        GameSession.AddWrongCheck(penalty);
+        ShowPoints(penalty);
     }
 
-    private void AddPoints(int points)
+    private void ShowPoints(int points)
     {
-        GameSession.AddPoints(points);
         UpdateScoreText();
         ShowPopup(points);
     }
