@@ -33,6 +33,12 @@ public class DeskController : MonoBehaviour
     [Header("Score")]
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text checksText;
+    [SerializeField] private TMP_Text timeText;
+    [SerializeField] private Image dayTimerImage;
+    [SerializeField] private TMP_Text newsRemainingText;
+    [Min(1)]
+    [SerializeField] private int dayDurationSeconds = 300;
+    [SerializeField] private Color timeWarningColor = new Color(0.95f, 0.35f, 0.3f);
     [SerializeField] private Color pointsGainedColor = new Color(0.35f, 0.85f, 0.45f);
     [SerializeField] private Color pointsLostColor = new Color(0.95f, 0.35f, 0.3f);
     [SerializeField] private float popupDuration = 1f;
@@ -44,19 +50,61 @@ public class DeskController : MonoBehaviour
     private bool isStamping;
     private readonly HashSet<(Section, RuleData)> foundContradictions = new HashSet<(Section, RuleData)>();
     private int wrongChecks;
+    private float timeRemaining;
+    private int displayedSeconds = -1;
+    private Color normalTimeColor;
+    private bool isEndingDay;
+    private Color initColor = Color.limeGreen;
+
+    private int NewsRemaining => queue.Count + (currentCase != null ? 1 : 0);
 
     private void Start()
     {
         int dayIndex = GameSession.DayIndex;
         DayData day = campaign.GetDay(dayIndex);
         GameSession.BeginDay(day.DayNumber);
+        timeRemaining = Mathf.Max(1, dayDurationSeconds);
+        normalTimeColor = timeText.color;
         SetUpButtons();
         contradictionChecker.Register(articleView);
         rulebookView.Show(day.Rules, campaign.GetAddedRules(dayIndex));
         EnqueueCases(day);
         UpdateScoreText();
         UpdateChecksText();
+        UpdateTimeText();
         ShowNextCase();
+        InitTimerImage();
+    }
+
+    private void Update()
+    {
+        if (isEndingDay || NewsRemaining == 0)
+        {
+            return;
+        }
+
+        timeRemaining = Mathf.Max(0f, timeRemaining - Time.unscaledDeltaTime);
+        UpdateTimeText();
+        UpdateImageTimer();
+        if (timeRemaining <= 0f)
+        {
+            FinishDay(true);
+        }
+    }
+
+    private void UpdateImageTimer()
+    {
+        float progress = Mathf.Clamp01(timeRemaining / Mathf.Max(1, dayDurationSeconds));
+        dayTimerImage.fillAmount = progress;
+        dayTimerImage.color = progress >= 0.5f
+            ? Color.Lerp(Color.softYellow, initColor, (progress - 0.5f) * 2f)
+            : Color.Lerp(Color.softRed, Color.softYellow, progress * 2f);
+    }
+
+    private void InitTimerImage()
+    {
+        dayTimerImage.fillAmount = 1;
+        dayTimerImage.color = initColor;
     }
 
     private void SetUpButtons()
@@ -81,7 +129,7 @@ public class DeskController : MonoBehaviour
 
     private void Decide(bool approved)
     {
-        if (currentCase == null || isStamping)
+        if (currentCase == null || isStamping || isEndingDay)
         {
             return;
         }
@@ -89,8 +137,10 @@ public class DeskController : MonoBehaviour
         DecisionRecord decision = new DecisionRecord(currentCase, approved);
         int points = decision.IsCorrect ? scoringSettings.CorrectDecisionPoints : scoringSettings.WrongDecisionPoints;
         GameSession.AddDecision(decision, points);
+        currentCase = null;
+        UpdateNewsRemainingText();
 
-        Debug.Log($"{(approved ? "Approved" : "Denied")} \"{currentCase.name}\": {(decision.IsCorrect ? "correct" : "wrong")}. Score: {GameSession.DayScore}");
+        Debug.Log($"{(approved ? "Approved" : "Denied")} \"{decision.Case.name}\": {(decision.IsCorrect ? "correct" : "wrong")}. Score: {GameSession.DayScore}");
 
         UpdateScoreText();
         ShowPopup(points);
@@ -113,6 +163,11 @@ public class DeskController : MonoBehaviour
 
         yield return documentStamp.Play(approved);
 
+        if (isEndingDay)
+        {
+            yield break;
+        }
+
         documentStamp.Hide();
         SetDecisionButtonsInteractable(true);
         isStamping = false;
@@ -121,6 +176,11 @@ public class DeskController : MonoBehaviour
 
     private void ShowNextCase()
     {
+        if (isEndingDay)
+        {
+            return;
+        }
+
         contradictionChecker.Clear();
         ClearEvidence();
 
@@ -133,11 +193,13 @@ public class DeskController : MonoBehaviour
         currentCase = queue.Dequeue();
         articleView.Show(currentCase.Article);
         SpawnEvidence(currentCase);
+        UpdateNewsRemainingText();
     }
     
     private void ShowEndOfDay()
     {
         currentCase = null;
+        UpdateNewsRemainingText();
         articleView.ShowMessage(noMoreNewsMessage);
         approveButton.gameObject.SetActive(false);
         denyButton.gameObject.SetActive(false);
@@ -146,8 +208,22 @@ public class DeskController : MonoBehaviour
 
     private void EndDay()
     {
-        GameSession.FinishDay();
-        SceneTransition.LoadScene(resultsSceneName);
+        FinishDay(false);
+    }
+
+    private void FinishDay(bool timedOut)
+    {
+        if (isEndingDay)
+        {
+            return;
+        }
+
+        isEndingDay = true;
+        SetDecisionButtonsInteractable(false);
+        endDayButton.interactable = false;
+        contradictionChecker.Clear();
+        GameSession.FinishDay(NewsRemaining);
+        SceneTransition.LoadScene(resultsSceneName, timedOut ? "TIME'S UP" : null);
     }
 
     private void UpdateScoreText()
@@ -161,6 +237,25 @@ public class DeskController : MonoBehaviour
         checksText.text = freeLeft > 0
             ? $"Free wrong checks left: {freeLeft}"
             : $"Wrong checks cost {-scoringSettings.WrongCheckPoints} points";
+    }
+
+    private void UpdateNewsRemainingText()
+    {
+        int decided = GameSession.Decisions.Count;
+        newsRemainingText.text = $"News: {decided}/{decided + NewsRemaining}";
+    }
+
+    private void UpdateTimeText()
+    {
+        int seconds = Mathf.CeilToInt(timeRemaining);
+        if (seconds == displayedSeconds)
+        {
+            return;
+        }
+
+        displayedSeconds = seconds;
+        timeText.text = $"Time left: {seconds / 60}:{seconds % 60:00}";
+        timeText.color = seconds <= 60 ? timeWarningColor : normalTimeColor;
     }
 
     // Shows "+N" or "-N" next to the score, rising and fading out.

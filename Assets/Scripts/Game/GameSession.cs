@@ -10,6 +10,7 @@ public static class GameSession
     public static int DayNumber { get; private set; }
     public static int DayScore { get; private set; }
     public static int TotalScore { get; private set; }
+    public static int UndecidedCount { get; private set; }
     public static IReadOnlyList<DecisionRecord> Decisions => decisions;
 
     // Resets the session each time Play mode starts.
@@ -25,6 +26,7 @@ public static class GameSession
         DayNumber = 0;
         DayScore = 0;
         TotalScore = 0;
+        UndecidedCount = 0;
         decisions.Clear();
     }
 
@@ -32,6 +34,7 @@ public static class GameSession
     {
         DayNumber = dayNumber;
         DayScore = 0;
+        UndecidedCount = 0;
         decisions.Clear();
     }
 
@@ -46,8 +49,9 @@ public static class GameSession
         DayScore += points;
     }
 
-    public static void FinishDay()
+    public static void FinishDay(int undecidedCount)
     {
+        UndecidedCount = undecidedCount;
         TotalScore += DayScore;
     }
 
