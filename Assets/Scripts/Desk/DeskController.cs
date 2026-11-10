@@ -36,6 +36,7 @@ public class DeskController : MonoBehaviour
     [SerializeField] private TMP_Text timeText;
     [SerializeField] private Image dayTimerImage;
     [SerializeField] private TMP_Text newsRemainingText;
+    [SerializeField] private WeatherManager weatherManager;
     [Min(1)]
     [SerializeField] private int dayDurationSeconds = 300;
     [SerializeField] private Color timeWarningColor = new Color(0.95f, 0.35f, 0.3f);
@@ -64,6 +65,10 @@ public class DeskController : MonoBehaviour
         DayData day = campaign.GetDay(dayIndex);
         GameSession.BeginDay(day.DayNumber);
         timeRemaining = Mathf.Max(1, dayDurationSeconds);
+        if (weatherManager != null)
+        {
+            weatherManager.ShowDay(day);
+        }
         normalTimeColor = timeText.color;
         SetUpButtons();
         contradictionChecker.Register(articleView);
@@ -84,6 +89,10 @@ public class DeskController : MonoBehaviour
         }
 
         timeRemaining = Mathf.Max(0f, timeRemaining - Time.unscaledDeltaTime);
+        if (weatherManager != null)
+        {
+            weatherManager.SetDayProgress(1f - timeRemaining / Mathf.Max(1, dayDurationSeconds));
+        }
         UpdateTimeText();
         UpdateImageTimer();
         if (timeRemaining <= 0f)

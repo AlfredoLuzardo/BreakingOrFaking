@@ -10,9 +10,12 @@ public class DayData : ScriptableObject
     [SerializeField] private string briefing;
     [SerializeField] private List<StoryCase> cases = new List<StoryCase>();
     [SerializeField] private List<RuleData> rules = new List<RuleData>();
+    [Tooltip("Weather in order during the playable day. Use two entries for one change or three for two changes.")]
+    [SerializeField] private List<DailyCondition> conditions = new List<DailyCondition>();
 
     public int DayNumber => dayNumber;
     public IReadOnlyList<StoryCase> Cases => cases;
     public string Briefing => briefing;
     public IReadOnlyList<RuleData> Rules => rules;
+    public IReadOnlyList<DailyCondition> Conditions => conditions;
 }
