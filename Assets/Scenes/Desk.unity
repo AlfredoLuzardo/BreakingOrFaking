@@ -161,6 +161,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: 1856537438}
   m_ActionId: 24908448-c609-4bc3-a128-ea258674378a
+--- !u!1 &411708168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 411708169}
+  - component: {fileID: 411708170}
+  m_Layer: 5
+  m_Name: DeskArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &411708169
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411708168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 789142153}
+  m_Father: {fileID: 972048457}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 949.86}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &411708170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411708168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3860efc5e459af4bbfb197316405c76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeskSurface
+  firstPosition: {x: 250, y: 0}
+  cascadeOffset: {x: 40, y: -40}
+  maxTilt: 3
 --- !u!1 &542239128
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +273,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -364,7 +416,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4291354856
   m_fontColor: {r: 0.9098039, g: 0.8784314, b: 0.78431374, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -377,7 +429,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -514,7 +566,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -598,6 +650,8 @@ GameObject:
   - component: {fileID: 789142155}
   - component: {fileID: 789142154}
   - component: {fileID: 789142156}
+  - component: {fileID: 789142157}
+  - component: {fileID: 789142158}
   m_Layer: 5
   m_Name: Document
   m_TagString: Untagged
@@ -612,14 +666,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789142152}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 868210683}
   - {fileID: 1928237383}
-  m_Father: {fileID: 972048457}
+  m_Father: {fileID: 411708169}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -676,9 +730,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4990d19362b6c9b4dba83892da60e156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DocumentView
-  sectionContainer: {fileID: 868210683}
   sectionPrefab: {fileID: 1469249511631993671, guid: 9209e2580d44ec3428cf00f9ecf2574b, type: 3}
+  sectionContainer: {fileID: 868210683}
   messageText: {fileID: 1928237384}
+  defaultArrangement: {fileID: 0}
+--- !u!114 &789142157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789142152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ca6ef6584947959e07975205e7e1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DocumentStamp
+  document: {fileID: 789142153}
+  font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  approvedText: APPROVED
+  deniedText: SPIKED
+  approvedColor: {r: 0.15, g: 0.5, b: 0.2, a: 0.9}
+  deniedColor: {r: 0.75, g: 0.12, b: 0.1, a: 0.9}
+  fontSize: 64
+  borderThickness: 6
+  padding: {x: 48, y: 20}
+  maxRotation: 12
+  maxOffset: {x: 60, y: 80}
+  slamDuration: 0.08
+  startScale: 1.8
+  thumpDuration: 0.12
+  thumpScale: 0.98
+  holdDuration: 0.6
+  audioSource: {fileID: 0}
+  approvedSound: {fileID: 0}
+  deniedSound: {fileID: 0}
+--- !u!114 &789142158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789142152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f79758c47d458e43aa753de5a75a0ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DraggableDocument
+  liftScale: 1.03
 --- !u!1 &817864634
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +810,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DeskController
   campaign: {fileID: 11400000, guid: 46a77f45a9c2b3e4caa5505856121a99, type: 2}
   scoringSettings: {fileID: 11400000, guid: fd29200ebb319954a8ff77eeee894dbb, type: 2}
-  documentView: {fileID: 789142156}
+  articleView: {fileID: 789142156}
+  deskSurface: {fileID: 411708170}
+  evidenceViewPrefabs:
+  - {fileID: 3264549467620400150, guid: 8446e5f1b1462864589e7120b66dd154, type: 3}
   rulebookView: {fileID: 1566355040}
   contradictionChecker: {fileID: 817864637}
   noMoreNewsMessage: No more news
@@ -719,6 +821,7 @@ MonoBehaviour:
   denyButton: {fileID: 1791888957}
   endDayButton: {fileID: 1973093509}
   resultsSceneName: Results
+  documentStamp: {fileID: 789142157}
   scoreText: {fileID: 1275837011}
   checksText: {fileID: 596574207}
   pointsGainedColor: {r: 0.35, g: 0.85, b: 0.45, a: 1}
@@ -752,7 +855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7901ba003c4bbe488af4d83dcfd5c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContradictionChecker
-  documentView: {fileID: 789142156}
   rulebookView: {fileID: 1566355040}
   resultText: {fileID: 542239129}
   resultDuration: 2
@@ -988,7 +1090,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 789142153}
+  - {fileID: 411708169}
   - {fileID: 923330854}
   - {fileID: 1791888954}
   - {fileID: 1275837013}
@@ -1061,7 +1163,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1154,7 +1256,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -1544,7 +1646,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4280163870
   m_fontColor: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1557,7 +1659,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -2380,6 +2482,7 @@ GameObject:
   - component: {fileID: 1861255530}
   - component: {fileID: 1861255529}
   - component: {fileID: 1861255528}
+  - component: {fileID: 1861255531}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2461,6 +2564,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1861255531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861255527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &1928237382
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,7 +2824,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -2814,7 +2961,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2

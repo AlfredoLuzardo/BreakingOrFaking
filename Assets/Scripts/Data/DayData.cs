@@ -8,11 +8,11 @@ public class DayData : ScriptableObject
     [Tooltip("Optional message shown on the briefing screen before this day starts.")]
     [TextArea(2, 6)]
     [SerializeField] private string briefing;
-    [SerializeField] private List<ItemData> items = new List<ItemData>();
+    [SerializeField] private List<StoryCase> cases = new List<StoryCase>();
     [SerializeField] private List<RuleData> rules = new List<RuleData>();
 
     public int DayNumber => dayNumber;
+    public IReadOnlyList<StoryCase> Cases => cases;
     public string Briefing => briefing;
-    public IReadOnlyList<ItemData> Items => items;
     public IReadOnlyList<RuleData> Rules => rules;
 }

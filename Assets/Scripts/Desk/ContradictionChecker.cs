@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ContradictionChecker : MonoBehaviour
 {
-    [SerializeField] private DocumentView documentView;
     [SerializeField] private RulebookView rulebookView;
     [SerializeField] private TMP_Text resultText;
     [SerializeField] private float resultDuration = 2f;
@@ -22,16 +21,24 @@ public class ContradictionChecker : MonoBehaviour
 
     private void OnEnable()
     {
-        documentView.SectionClicked += OnSectionClicked;
-        documentView.ContentCleared += Clear;
         rulebookView.RuleClicked += OnRuleClicked;
     }
 
     private void OnDisable()
     {
-        documentView.SectionClicked -= OnSectionClicked;
-        documentView.ContentCleared -= Clear;
         rulebookView.RuleClicked -= OnRuleClicked;
+    }
+
+    public void Register(DocumentView view)
+    {
+        view.SectionClicked += OnSectionClicked;
+        view.ContentCleared += Clear;
+    }
+
+    public void Unregister(DocumentView view)
+    {
+        view.SectionClicked -= OnSectionClicked;
+        view.ContentCleared -= Clear;
     }
 
     public void Clear()
@@ -42,16 +49,8 @@ public class ContradictionChecker : MonoBehaviour
             resetRoutine = null;
         }
 
-        if (selectedSection != null)
-        {
-            selectedSection.SetSelected(false);
-        }
-
-        if (selectedRule != null)
-        {
-            selectedRule.SetSelected(false);
-        }
-
+        Deselect(selectedSection);
+        Deselect(selectedRule);
         selectedSection = null;
         selectedRule = null;
         resultText.text = string.Empty;
@@ -59,34 +58,26 @@ public class ContradictionChecker : MonoBehaviour
 
     private void OnSectionClicked(SectionView view)
     {
-        if (resetRoutine != null)
+        if (resetRoutine == null)
         {
-            return;
+            selectedSection = Toggle(selectedSection, view);
+            TryCheck();
         }
-
-        selectedSection = Toggle(selectedSection, view);
-        TryCheck();
     }
 
     private void OnRuleClicked(RuleView view)
     {
-        if (resetRoutine != null)
+        if (resetRoutine == null)
         {
-            return;
+            selectedRule = Toggle(selectedRule, view);
+            TryCheck();
         }
-
-        selectedRule = Toggle(selectedRule, view);
-        TryCheck();
     }
 
     // Selects the clicked item, or deselects it if it was already selected.
     private static T Toggle<T>(T current, T clicked) where T : SelectableItem
     {
-        if (current != null)
-        {
-            current.SetSelected(false);
-        }
-
+        Deselect(current);
         if (current == clicked)
         {
             return null;
@@ -94,6 +85,14 @@ public class ContradictionChecker : MonoBehaviour
 
         clicked.SetSelected(true);
         return clicked;
+    }
+
+    private static void Deselect(SelectableItem item)
+    {
+        if (item != null)
+        {
+            item.SetSelected(false);
+        }
     }
 
     private void TryCheck()

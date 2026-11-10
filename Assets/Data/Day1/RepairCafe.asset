@@ -12,24 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a65e015ce24ab2bb7cbfd70d3795c2, type: 3}
   m_Name: RepairCafe
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  title: "Repair Cafe Reports Its First Month"
+  date: 10312026
+  title: Repair Cafe Reports Its First Month
+  arrangement: {fileID: 0}
   pages:
-  - description:
+  - arrangement: {fileID: 7506930096474935327, guid: 48ea9246e6fb69047be95e0ee77aa60a, type: 3}
+    description:
     - style: 1
-      text: "Monthly report"
+      region: 0
+      text: Monthly report
       contradictedRules: []
     - style: 2
-      text: "Volunteers repaired 45 of the 60 appliances brought to the Westbank Repair Cafe during October, a success rate of 75 percent."
+      region: 0
+      text: Volunteers repaired 45 of the 60 appliances brought to the Westbank Repair
+        Cafe during October, a success rate of 75 percent.
       contradictedRules: []
-    images: []
-  - description:
+    images:
+    - {fileID: 21300000, guid: 08dbd27c1222d754fa21c065524d555e, type: 3}
+  - arrangement: {fileID: 0}
+    description:
     - style: 1
-      text: "Next session"
+      region: 0
+      text: Next session
       contradictedRules: []
     - style: 2
-      text: "\"We will reopen on November 8,\" said coordinator Jules Morgan. The cafe schedule also lists November 8 as its next public session."
+      region: 0
+      text: '"We will reopen on November 8," said coordinator Jules Morgan. The cafe
+        schedule also lists November 8 as its next public session.'
       contradictedRules: []
     images: []
   author: []
-  date: "10312026"
-  isTrue: 1
