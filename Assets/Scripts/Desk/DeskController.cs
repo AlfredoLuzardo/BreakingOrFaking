@@ -20,6 +20,7 @@ public class DeskController : MonoBehaviour
     [Tooltip("One prefab per evidence type, e.g. PhotographView. The first one that can show a document is used.")]
     [SerializeField] private List<DocumentView> evidenceViewPrefabs = new List<DocumentView>();
     [SerializeField] private RulebookView rulebookView;
+    [SerializeField] private InfoBookView infoBookView;
     [SerializeField] private ContradictionChecker contradictionChecker;
     [SerializeField] private string noMoreNewsMessage = "No more news";
 
@@ -53,6 +54,7 @@ public class DeskController : MonoBehaviour
         SetUpButtons();
         contradictionChecker.Register(articleView);
         rulebookView.Show(day.Rules, campaign.GetAddedRules(dayIndex));
+        ShowInfoBook(day);
         EnqueueCases(day);
         UpdateScoreText();
         UpdateChecksText();
@@ -66,6 +68,15 @@ public class DeskController : MonoBehaviour
         endDayButton.onClick.AddListener(EndDay);
         endDayButton.gameObject.SetActive(false);
         contradictionChecker.Checked += OnChecked;
+    }
+
+    private void ShowInfoBook(DayData day)
+    {
+        infoBookView.gameObject.SetActive(day.InfoBook != null);
+        if (day.InfoBook != null)
+        {
+            infoBookView.Show(day.InfoBook);
+        }
     }
 
     private void EnqueueCases(DayData day)
