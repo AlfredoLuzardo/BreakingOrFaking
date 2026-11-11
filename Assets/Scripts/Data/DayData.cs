@@ -10,9 +10,12 @@ public class DayData : ScriptableObject
     [SerializeField] private string briefing;
     [SerializeField] private List<StoryCase> cases = new List<StoryCase>();
     [SerializeField] private List<RuleData> rules = new List<RuleData>();
+    [Tooltip("Optional book of reference facts for this day.")]
+    [SerializeField] private InfoBookData infoBook;
 
     public int DayNumber => dayNumber;
     public IReadOnlyList<StoryCase> Cases => cases;
     public string Briefing => briefing;
     public IReadOnlyList<RuleData> Rules => rules;
+    public InfoBookData InfoBook => infoBook;
 }
