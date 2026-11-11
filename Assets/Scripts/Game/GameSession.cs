@@ -10,6 +10,7 @@ public static class GameSession
     public static int DayNumber { get; private set; }
     public static int DayScore { get; private set; }
     public static int TotalScore { get; private set; }
+    public static int UndecidedCount { get; private set; }
     public static IReadOnlyList<DecisionRecord> Decisions => decisions;
 
     public static int CorrectCalls { get; private set; }
@@ -34,12 +35,15 @@ public static class GameSession
         DayIndex = 0;
         TotalScore = 0;
         BeginDay(0);
+        UndecidedCount = 0;
+        decisions.Clear();
     }
 
     public static void BeginDay(int dayNumber)
     {
         DayNumber = dayNumber;
         DayScore = 0;
+        UndecidedCount = 0;
         decisions.Clear();
         CorrectCalls = 0;
         CorrectCallPoints = 0;
@@ -76,6 +80,12 @@ public static class GameSession
         DayScore += points;
     }
 
+    public static void FinishDay(int undecidedCount)
+    {
+        UndecidedCount = undecidedCount;
+        TotalScore += DayScore;
+    }
+    
     public static void AddWrongCheck(int points)
     {
         WrongChecks++;
@@ -88,10 +98,6 @@ public static class GameSession
         }
     }
 
-    public static void FinishDay()
-    {
-        TotalScore += DayScore;
-    }
 
     public static void AdvanceToNextDay()
     {

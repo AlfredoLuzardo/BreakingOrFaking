@@ -26,6 +26,10 @@ public class ResultsScreen : MonoBehaviour
             ? $"Day score: {GameSession.DayScore}    Final total: {GameSession.TotalScore}"
             : $"Day score: {GameSession.DayScore}    Total: {GameSession.TotalScore}";
         breakdownText.text = BuildBreakdown(isLastDay);
+        if (GameSession.UndecidedCount > 0)
+        {
+            scoreText.text += $"    Undecided: {GameSession.UndecidedCount}";
+        }
 
         foreach (DecisionRecord decision in GameSession.Decisions)
         {

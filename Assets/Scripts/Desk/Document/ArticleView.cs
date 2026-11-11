@@ -1,3 +1,4 @@
+using System;
 using Desk.Document;
 using TMPro;
 using UnityEngine;
@@ -20,6 +21,9 @@ public class ArticleView : DocumentView
     private ArticleData article;
     private PageArrangement arrangement;
     private int pageIndex;
+
+    public bool HasArticle => article != null;
+    public event Action ViewChanged;
 
     private int PageCount => article != null ? article.Pages.Count : 0;
     private PageData CurrentPage => PageCount > 0 ? article.Pages[pageIndex] : null;
@@ -47,6 +51,7 @@ public class ArticleView : DocumentView
 
         messageText.text = message;
         messageText.gameObject.SetActive(true);
+        ViewChanged?.Invoke();
     }
 
     protected override void ClearContent()
@@ -88,6 +93,7 @@ public class ArticleView : DocumentView
 
         if (article == null)
         {
+            ViewChanged?.Invoke();
             return;
         }
 
@@ -102,6 +108,7 @@ public class ArticleView : DocumentView
         }
 
         ScrollToTop();
+        ViewChanged?.Invoke();
     }
 
     private void CreateArrangement(PageData page)

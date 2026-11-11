@@ -1,0 +1,1394 @@
+fileFormatVersion: 2
+guid: 7ad67db8c6c694a44aa3957ac3bbbcd6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6534520886326540217
+    second: Pastel Weather Icon Grid_0
+  - first:
+      213: -5895095972900860593
+    second: Pastel Weather Icon Grid_1
+  - first:
+      213: 6568734936202223381
+    second: Pastel Weather Icon Grid_2
+  - first:
+      213: -1846211431801059437
+    second: Pastel Weather Icon Grid_3
+  - first:
+      213: -4135988091638707970
+    second: Pastel Weather Icon Grid_4
+  - first:
+      213: 552608772435136764
+    second: Pastel Weather Icon Grid_5
+  - first:
+      213: 8946406152912883932
+    second: Pastel Weather Icon Grid_6
+  - first:
+      213: 3948050896490191112
+    second: Pastel Weather Icon Grid_7
+  - first:
+      213: -196775339878194047
+    second: Pastel Weather Icon Grid_8
+  - first:
+      213: -9038067620996267816
+    second: Pastel Weather Icon Grid_9
+  - first:
+      213: 6627521753691034719
+    second: Pastel Weather Icon Grid_10
+  - first:
+      213: -6066494189371490235
+    second: Pastel Weather Icon Grid_11
+  - first:
+      213: 7996105706717549764
+    second: Pastel Weather Icon Grid_12
+  - first:
+      213: -2017712505898328687
+    second: Pastel Weather Icon Grid_13
+  - first:
+      213: -951260083792952048
+    second: Pastel Weather Icon Grid_14
+  - first:
+      213: 1578455784431603039
+    second: Pastel Weather Icon Grid_15
+  - first:
+      213: 1198562649377820831
+    second: Pastel Weather Icon Grid_16
+  - first:
+      213: 9123306100288280302
+    second: Pastel Weather Icon Grid_17
+  - first:
+      213: -1374202893482580165
+    second: Pastel Weather Icon Grid_18
+  - first:
+      213: 6935669259587708877
+    second: Pastel Weather Icon Grid_19
+  - first:
+      213: -5731461839627230027
+    second: Pastel Weather Icon Grid_20
+  - first:
+      213: -7363331725201123003
+    second: Pastel Weather Icon Grid_21
+  - first:
+      213: -7097736423662169368
+    second: Pastel Weather Icon Grid_22
+  - first:
+      213: -3715884412115848227
+    second: Pastel Weather Icon Grid_23
+  - first:
+      213: 4066226975956496771
+    second: Pastel Weather Icon Grid_24
+  - first:
+      213: 965547675847214095
+    second: Pastel Weather Icon Grid_25
+  - first:
+      213: -4636775212291288009
+    second: Pastel Weather Icon Grid_26
+  - first:
+      213: 8145794997555298104
+    second: Pastel Weather Icon Grid_27
+  - first:
+      213: 5557887138461044694
+    second: Pastel Weather Icon Grid_28
+  - first:
+      213: 7212496405136649638
+    second: Pastel Weather Icon Grid_29
+  - first:
+      213: -3983486066826430332
+    second: Pastel Weather Icon Grid_30
+  - first:
+      213: 4312329071592070719
+    second: Pastel Weather Icon Grid_31
+  - first:
+      213: 8633974489033932764
+    second: Pastel Weather Icon Grid_32
+  - first:
+      213: -7931988746444344613
+    second: Pastel Weather Icon Grid_33
+  - first:
+      213: -4688183074974464346
+    second: Pastel Weather Icon Grid_34
+  - first:
+      213: 1168075038730381817
+    second: Pastel Weather Icon Grid_35
+  - first:
+      213: 9139609216684994647
+    second: Pastel Weather Icon Grid_36
+  - first:
+      213: 6060453898903843075
+    second: Pastel Weather Icon Grid_37
+  - first:
+      213: -8731680239652251780
+    second: Pastel Weather Icon Grid_38
+  - first:
+      213: -8772941126466259176
+    second: Pastel Weather Icon Grid_39
+  - first:
+      213: 1793798814719571473
+    second: Pastel Weather Icon Grid_40
+  - first:
+      213: 3395122723747927639
+    second: Pastel Weather Icon Grid_41
+  - first:
+      213: -6999348310218392863
+    second: Pastel Weather Icon Grid_42
+  - first:
+      213: 8685764268619923290
+    second: Pastel Weather Icon Grid_43
+  - first:
+      213: 3894385927483382716
+    second: Pastel Weather Icon Grid_44
+  - first:
+      213: -2751306740053168910
+    second: Pastel Weather Icon Grid_45
+  - first:
+      213: 8953203200750050639
+    second: Pastel Weather Icon Grid_46
+  - first:
+      213: -9200372587905460126
+    second: Pastel Weather Icon Grid_47
+  - first:
+      213: -5086758176768219724
+    second: Pastel Weather Icon Grid_48
+  - first:
+      213: 6454773945952781767
+    second: Pastel Weather Icon Grid_49
+  - first:
+      213: -5400697399452470877
+    second: Pastel Weather Icon Grid_50
+  - first:
+      213: -7874807409411622461
+    second: Pastel Weather Icon Grid_51
+  - first:
+      213: -3574393262618298533
+    second: Pastel Weather Icon Grid_52
+  - first:
+      213: -5554963030385339115
+    second: Pastel Weather Icon Grid_53
+  - first:
+      213: 126455105940395311
+    second: Pastel Weather Icon Grid_54
+  - first:
+      213: 6032204340638846250
+    second: Pastel Weather Icon Grid_55
+  - first:
+      213: -7261492891444205097
+    second: Pastel Weather Icon Grid_56
+  - first:
+      213: 5806027394059131497
+    second: Pastel Weather Icon Grid_57
+  - first:
+      213: -1095505274719258751
+    second: Pastel Weather Icon Grid_58
+  - first:
+      213: -6563258457397988968
+    second: Pastel Weather Icon Grid_59
+  - first:
+      213: 5044658566517052205
+    second: Pastel Weather Icon Grid_60
+  - first:
+      213: 8554800353840072543
+    second: Pastel Weather Icon Grid_61
+  - first:
+      213: 6159514137956377553
+    second: Pastel Weather Icon Grid_62
+  - first:
+      213: 51911604537274896
+    second: Pastel Weather Icon Grid_63
+  - first:
+      213: 217936249054148802
+    second: Pastel Weather Icon Grid_64
+  - first:
+      213: -1727038838294603963
+    second: Pastel Weather Icon Grid_65
+  - first:
+      213: -1907992333200852318
+    second: Pastel Weather Icon Grid_66
+  - first:
+      213: 4145091827707030516
+    second: Pastel Weather Icon Grid_67
+  - first:
+      213: -7956737918928743131
+    second: Pastel Weather Icon Grid_68
+  - first:
+      213: 3788273415897249867
+    second: Pastel Weather Icon Grid_69
+  - first:
+      213: 7471449191184793348
+    second: Pastel Weather Icon Grid_70
+  - first:
+      213: -1426264760614024000
+    second: Pastel Weather Icon Grid_71
+  - first:
+      213: 5480126040447398267
+    second: Pastel Weather Icon Grid_72
+  - first:
+      213: -5793416486642808206
+    second: Pastel Weather Icon Grid_73
+  - first:
+      213: 5163438772155416458
+    second: Pastel Weather Icon Grid_74
+  - first:
+      213: -3284951703143272649
+    second: Pastel Weather Icon Grid_75
+  - first:
+      213: 931589491759019034
+    second: Pastel Weather Icon Grid_76
+  - first:
+      213: -5532739534219454954
+    second: Pastel Weather Icon Grid_77
+  - first:
+      213: 5775198379321550690
+    second: Pastel Weather Icon Grid_78
+  - first:
+      213: -1101797451204785233
+    second: Pastel Weather Icon Grid_79
+  - first:
+      213: -3997231290875719001
+    second: Pastel Weather Icon Grid_80
+  - first:
+      213: -7127225979814476661
+    second: Pastel Weather Icon Grid_81
+  - first:
+      213: 1655303574455066423
+    second: Pastel Weather Icon Grid_82
+  - first:
+      213: -3378801103383806613
+    second: Pastel Weather Icon Grid_83
+  - first:
+      213: -6696623206509836749
+    second: Pastel Weather Icon Grid_84
+  - first:
+      213: 1844322245684321375
+    second: Pastel Weather Icon Grid_85
+  - first:
+      213: 1141187876269709638
+    second: Pastel Weather Icon Grid_86
+  - first:
+      213: -701310174665120649
+    second: Pastel Weather Icon Grid_87
+  - first:
+      213: 8814181307116530374
+    second: Pastel Weather Icon Grid_88
+  - first:
+      213: 2173637141305508110
+    second: Pastel Weather Icon Grid_89
+  - first:
+      213: 2157302561924865663
+    second: Pastel Weather Icon Grid_90
+  - first:
+      213: -952551429343104971
+    second: Pastel Weather Icon Grid_91
+  - first:
+      213: -7411400558723754696
+    second: Pastel Weather Icon Grid_92
+  - first:
+      213: -1071963065241005437
+    second: Pastel Weather Icon Grid_93
+  - first:
+      213: -3345262641845755170
+    second: Pastel Weather Icon Grid_94
+  - first:
+      213: -5476028557804002153
+    second: Pastel Weather Icon Grid_95
+  - first:
+      213: -8740565660949813943
+    second: Pastel Weather Icon Grid_96
+  - first:
+      213: 2825458924047225885
+    second: Pastel Weather Icon Grid_97
+  - first:
+      213: -358011758152787909
+    second: Pastel Weather Icon Grid_98
+  - first:
+      213: 1394974358657362524
+    second: Pastel Weather Icon Grid_99
+  - first:
+      213: 2107762173310326018
+    second: Pastel Weather Icon Grid_100
+  - first:
+      213: 1647251903632862326
+    second: Pastel Weather Icon Grid_101
+  - first:
+      213: 6472240912536318931
+    second: Pastel Weather Icon Grid_102
+  - first:
+      213: -7712014705240269226
+    second: Pastel Weather Icon Grid_103
+  - first:
+      213: -2368406460080123199
+    second: Pastel Weather Icon Grid_104
+  - first:
+      213: 6578703150501473239
+    second: Pastel Weather Icon Grid_105
+  - first:
+      213: -7574364292033669650
+    second: Pastel Weather Icon Grid_106
+  - first:
+      213: 4028502217843778800
+    second: Pastel Weather Icon Grid_107
+  - first:
+      213: -3904035578326103106
+    second: Pastel Weather Icon Grid_108
+  - first:
+      213: -492893537939239483
+    second: Pastel Weather Icon Grid_109
+  - first:
+      213: -2425353246001836880
+    second: Pastel Weather Icon Grid_110
+  - first:
+      213: 5794549156609547249
+    second: Pastel Weather Icon Grid_111
+  - first:
+      213: -4992232522464175396
+    second: Pastel Weather Icon Grid_112
+  - first:
+      213: 4940303775845506477
+    second: Pastel Weather Icon Grid_113
+  - first:
+      213: -1918125282361724173
+    second: Pastel Weather Icon Grid_114
+  - first:
+      213: -6409770631612290027
+    second: Pastel Weather Icon Grid_115
+  - first:
+      213: -6466970320537909249
+    second: Pastel Weather Icon Grid_116
+  - first:
+      213: 1598861352614385672
+    second: Pastel Weather Icon Grid_117
+  - first:
+      213: -2451289128070610464
+    second: Pastel Weather Icon Grid_118
+  - first:
+      213: 4279705778297669834
+    second: Pastel Weather Icon Grid_119
+  - first:
+      213: -5569293719014114944
+    second: Pastel Weather Icon Grid_120
+  - first:
+      213: -6514430720695333281
+    second: Pastel Weather Icon Grid_121
+  - first:
+      213: 3425472144073759494
+    second: Pastel Weather Icon Grid_122
+  - first:
+      213: 5840086430082256406
+    second: Pastel Weather Icon Grid_123
+  - first:
+      213: 1624029193133690111
+    second: Pastel Weather Icon Grid_124
+  - first:
+      213: -3278802509512912061
+    second: Pastel Weather Icon Grid_125
+  - first:
+      213: -7419402113113459559
+    second: Pastel Weather Icon Grid_126
+  - first:
+      213: 2635834538903137452
+    second: Pastel Weather Icon Grid_127
+  - first:
+      213: 3707351428497879887
+    second: Pastel Weather Icon Grid_128
+  - first:
+      213: -1972270352730186324
+    second: Pastel Weather Icon Grid_129
+  - first:
+      213: -1090239972072151462
+    second: Pastel Weather Icon Grid_130
+  - first:
+      213: -3890617373337824961
+    second: Pastel Weather Icon Grid_131
+  - first:
+      213: -6500796852072547765
+    second: Pastel Weather Icon Grid_132
+  - first:
+      213: 5104219852802246045
+    second: Pastel Weather Icon Grid_133
+  - first:
+      213: -5156268011989112890
+    second: Pastel Weather Icon Grid_134
+  - first:
+      213: -1628594343687431905
+    second: Pastel Weather Icon Grid_135
+  - first:
+      213: -692952008118838199
+    second: Pastel Weather Icon Grid_136
+  - first:
+      213: -4096056048282525423
+    second: Pastel Weather Icon Grid_137
+  - first:
+      213: 1724771734285798360
+    second: Pastel Weather Icon Grid_138
+  - first:
+      213: 1240654820901813465
+    second: Pastel Weather Icon Grid_139
+  - first:
+      213: 5618865594164815188
+    second: Pastel Weather Icon Grid_140
+  - first:
+      213: -2587863737564925159
+    second: Pastel Weather Icon Grid_141
+  - first:
+      213: -2393876654721666260
+    second: Pastel Weather Icon Grid_142
+  - first:
+      213: -9056410982185817224
+    second: Pastel Weather Icon Grid_143
+  - first:
+      213: -524548051944036976
+    second: Pastel Weather Icon Grid_144
+  - first:
+      213: 9021853855872416627
+    second: Pastel Weather Icon Grid_145
+  - first:
+      213: -6794358878374706692
+    second: Pastel Weather Icon Grid_146
+  - first:
+      213: 7052652749577696452
+    second: Pastel Weather Icon Grid_147
+  - first:
+      213: 668714684146678540
+    second: Pastel Weather Icon Grid_148
+  - first:
+      213: -7622885390429645781
+    second: Pastel Weather Icon Grid_149
+  - first:
+      213: -1572864393710373815
+    second: Pastel Weather Icon Grid_150
+  - first:
+      213: 6127598087771491956
+    second: Pastel Weather Icon Grid_151
+  - first:
+      213: 6380268917753032164
+    second: Pastel Weather Icon Grid_152
+  - first:
+      213: 5284221696338546729
+    second: Pastel Weather Icon Grid_153
+  - first:
+      213: 5426423355466861493
+    second: Pastel Weather Icon Grid_154
+  - first:
+      213: -4385766716236351908
+    second: Pastel Weather Icon Grid_155
+  - first:
+      213: 2340440206892553379
+    second: Pastel Weather Icon Grid_156
+  - first:
+      213: -8400166422129004230
+    second: Pastel Weather Icon Grid_157
+  - first:
+      213: 4064827062333073765
+    second: Pastel Weather Icon Grid_158
+  - first:
+      213: 3519912641075118159
+    second: Pastel Weather Icon Grid_159
+  - first:
+      213: -2230699453010858276
+    second: Pastel Weather Icon Grid_160
+  - first:
+      213: 7327043750721740339
+    second: Pastel Weather Icon Grid_161
+  - first:
+      213: -3266763916774080956
+    second: Pastel Weather Icon Grid_162
+  - first:
+      213: -4518925303122181959
+    second: Pastel Weather Icon Grid_163
+  - first:
+      213: -3668329346476197037
+    second: Pastel Weather Icon Grid_164
+  - first:
+      213: 4023417588771557695
+    second: Pastel Weather Icon Grid_165
+  - first:
+      213: -3341194974398902005
+    second: Pastel Weather Icon Grid_166
+  - first:
+      213: 5847137306058103125
+    second: Pastel Weather Icon Grid_167
+  - first:
+      213: 5920186950675030711
+    second: Pastel Weather Icon Grid_168
+  - first:
+      213: -7214330750382938153
+    second: Pastel Weather Icon Grid_169
+  - first:
+      213: 8775865816950111964
+    second: Pastel Weather Icon Grid_170
+  - first:
+      213: -1429284351827191355
+    second: Pastel Weather Icon Grid_171
+  - first:
+      213: -4349214377013637889
+    second: Pastel Weather Icon Grid_172
+  - first:
+      213: 7419743860899825403
+    second: Pastel Weather Icon Grid_173
+  - first:
+      213: 2214643313582746691
+    second: Pastel Weather Icon Grid_174
+  - first:
+      213: 2511664358631242819
+    second: Pastel Weather Icon Grid_175
+  - first:
+      213: 8888449507978123543
+    second: Pastel Weather Icon Grid_176
+  - first:
+      213: 5009293941228493381
+    second: Pastel Weather Icon Grid_177
+  - first:
+      213: 6558721148588567172
+    second: Pastel Weather Icon Grid_178
+  - first:
+      213: 6055822029921759028
+    second: Pastel Weather Icon Grid_179
+  - first:
+      213: 7861241123287634996
+    second: Pastel Weather Icon Grid_180
+  - first:
+      213: 7846642456011907266
+    second: Pastel Weather Icon Grid_181
+  - first:
+      213: 7850846211008084145
+    second: Pastel Weather Icon Grid_182
+  - first:
+      213: -7591506868983160255
+    second: Pastel Weather Icon Grid_183
+  - first:
+      213: -98286382022609428
+    second: Pastel Weather Icon Grid_184
+  - first:
+      213: -3116437031467486873
+    second: Pastel Weather Icon Grid_185
+  - first:
+      213: -3462032608624978299
+    second: Pastel Weather Icon Grid_186
+  - first:
+      213: -851388516464030703
+    second: Pastel Weather Icon Grid_187
+  - first:
+      213: 7094160961046431252
+    second: Pastel Weather Icon Grid_188
+  - first:
+      213: -1078913886072806347
+    second: Pastel Weather Icon Grid_189
+  - first:
+      213: -4457932879833847370
+    second: Pastel Weather Icon Grid_190
+  - first:
+      213: 3055313958026501808
+    second: Pastel Weather Icon Grid_191
+  - first:
+      213: -6845812030082695133
+    second: Pastel Weather Icon Grid_192
+  - first:
+      213: -557919973732655999
+    second: Pastel Weather Icon Grid_193
+  - first:
+      213: 3443921993638640993
+    second: Pastel Weather Icon Grid_194
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 917
+        width: 165
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b73ddeef184faa50800000000000000
+      internalID: 6534520886326540217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_1
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 929
+        width: 187
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d886a3279603ea0800000000000000
+      internalID: -5895095972900860593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_2
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 917
+        width: 173
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f18003f95d82b50800000000000000
+      internalID: 6568734936202223381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_3
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 919
+        width: 180
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3978b330c70f066e0800000000000000
+      internalID: -1846211431801059437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_4
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 917
+        width: 187
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef801aa7eb40a96c0800000000000000
+      internalID: -4135988091638707970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_5
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 917
+        width: 173
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf0d2cc20c24ba700800000000000000
+      internalID: 552608772435136764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_6
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 689
+        width: 171
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd0ddb8fef4082c70800000000000000
+      internalID: 8946406152912883932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_7
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 689
+        width: 194
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 809d5786f5b4ac630800000000000000
+      internalID: 3948050896490191112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_8
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 689
+        width: 187
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 184e006fed9e44df0800000000000000
+      internalID: -196775339878194047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_9
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 689
+        width: 191
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d0ce8a6265529280800000000000000
+      internalID: -9038067620996267816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_10
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 713
+        width: 184
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f549dedbbefa9fb50800000000000000
+      internalID: 6627521753691034719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_11
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 689
+        width: 173
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5408a8a2dab7fcba0800000000000000
+      internalID: -6066494189371490235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 488
+        width: 165
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c49f5b66cfd7fe60800000000000000
+      internalID: 7996105706717549764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_13
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 479
+        width: 182
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d111b8a25aff3e0800000000000000
+      internalID: -2017712505898328687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_14
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 479
+        width: 180
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01543886ef17cc2f0800000000000000
+      internalID: -951260083792952048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_15
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 477
+        width: 184
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5dc4b44c2dc7e510800000000000000
+      internalID: 1578455784431603039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_16
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 502
+        width: 180
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90573d116622a010800000000000000
+      internalID: 1198562649377820831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_17
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 481
+        width: 173
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee656d49f8e7c9e70800000000000000
+      internalID: 9123306100288280302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 270
+        width: 165
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3728accfb9ddece0800000000000000
+      internalID: -1374202893482580165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_19
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 277
+        width: 173
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc76251e172704060800000000000000
+      internalID: 6935669259587708877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_20
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 277
+        width: 178
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b4ef4dc2d1c570b0800000000000000
+      internalID: -5731461839627230027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_21
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 282
+        width: 171
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 549d50cfec030d990800000000000000
+      internalID: -7363331725201123003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_22
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 290
+        width: 193
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e2d34ef356cf7d90800000000000000
+      internalID: -7097736423662169368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_23
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 277
+        width: 189
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd37c6590d68e6cc0800000000000000
+      internalID: -3715884412115848227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_24
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 75
+        width: 142
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3817ffd04e32e6830800000000000000
+      internalID: 4066226975956496771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_25
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 61
+        width: 184
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04c398de70566d00800000000000000
+      internalID: 965547675847214095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_26
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 54
+        width: 139
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7349a08d28dd6afb0800000000000000
+      internalID: -4636775212291288009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_27
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 64
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83fff6a546dab0170800000000000000
+      internalID: 8145794997555298104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_28
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 59
+        width: 153
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dfceadc7e4912d40800000000000000
+      internalID: 5557887138461044694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pastel Weather Icon Grid_29
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 70
+        width: 180
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ada3fb544fe71460800000000000000
+      internalID: 7212496405136649638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b9f29767acc8e2a4c8ab2e95d2eba54c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":229.0,"y":228.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Pastel Weather Icon Grid_0: 6534520886326540217
+      Pastel Weather Icon Grid_1: -5895095972900860593
+      Pastel Weather Icon Grid_10: 6627521753691034719
+      Pastel Weather Icon Grid_11: -6066494189371490235
+      Pastel Weather Icon Grid_12: 7996105706717549764
+      Pastel Weather Icon Grid_13: -2017712505898328687
+      Pastel Weather Icon Grid_14: -951260083792952048
+      Pastel Weather Icon Grid_15: 1578455784431603039
+      Pastel Weather Icon Grid_16: 1198562649377820831
+      Pastel Weather Icon Grid_17: 9123306100288280302
+      Pastel Weather Icon Grid_18: -1374202893482580165
+      Pastel Weather Icon Grid_19: 6935669259587708877
+      Pastel Weather Icon Grid_2: 6568734936202223381
+      Pastel Weather Icon Grid_20: -5731461839627230027
+      Pastel Weather Icon Grid_21: -7363331725201123003
+      Pastel Weather Icon Grid_22: -7097736423662169368
+      Pastel Weather Icon Grid_23: -3715884412115848227
+      Pastel Weather Icon Grid_24: 4066226975956496771
+      Pastel Weather Icon Grid_25: 965547675847214095
+      Pastel Weather Icon Grid_26: -4636775212291288009
+      Pastel Weather Icon Grid_27: 8145794997555298104
+      Pastel Weather Icon Grid_28: 5557887138461044694
+      Pastel Weather Icon Grid_29: 7212496405136649638
+      Pastel Weather Icon Grid_3: -1846211431801059437
+      Pastel Weather Icon Grid_4: -4135988091638707970
+      Pastel Weather Icon Grid_5: 552608772435136764
+      Pastel Weather Icon Grid_6: 8946406152912883932
+      Pastel Weather Icon Grid_7: 3948050896490191112
+      Pastel Weather Icon Grid_8: -196775339878194047
+      Pastel Weather Icon Grid_9: -9038067620996267816
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
