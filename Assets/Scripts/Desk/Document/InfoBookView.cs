@@ -41,7 +41,7 @@ public class InfoBookView : DocumentView, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!isOpen && eventData.button == PointerEventData.InputButton.Left)
+        if (!isOpen && !eventData.dragging && eventData.button == PointerEventData.InputButton.Left)
         {
             Open();
         }
