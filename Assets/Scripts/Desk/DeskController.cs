@@ -20,6 +20,7 @@ public class DeskController : MonoBehaviour
     [Tooltip("One prefab per evidence type, e.g. PhotographView. The first one that can show a document is used.")]
     [SerializeField] private List<DocumentView> evidenceViewPrefabs = new List<DocumentView>();
     [SerializeField] private RulebookView rulebookView;
+    [SerializeField] private InfoBookView infoBookView;
     [SerializeField] private ContradictionChecker contradictionChecker;
     [SerializeField] private string noMoreNewsMessage = "No more news";
 
@@ -53,7 +54,7 @@ public class DeskController : MonoBehaviour
     private int wrongChecks;
     private float timeRemaining;
     private int displayedSeconds = -1;
-    private Color normalTimeColor;
+    private Color normalTimeColor = new Color();
     private bool isEndingDay;
     private Color initColor = Color.limeGreen;
 
@@ -73,6 +74,7 @@ public class DeskController : MonoBehaviour
         SetUpButtons();
         contradictionChecker.Register(articleView);
         rulebookView.Show(day.Rules, campaign.GetAddedRules(dayIndex));
+        ShowInfoBook(day);
         EnqueueCases(day);
         UpdateScoreText();
         UpdateChecksText();
@@ -123,6 +125,15 @@ public class DeskController : MonoBehaviour
         endDayButton.onClick.AddListener(EndDay);
         endDayButton.gameObject.SetActive(false);
         contradictionChecker.Checked += OnChecked;
+    }
+
+    private void ShowInfoBook(DayData day)
+    {
+        infoBookView.gameObject.SetActive(day.InfoBook != null);
+        if (day.InfoBook != null)
+        {
+            infoBookView.Show(day.InfoBook);
+        }
     }
 
     private void EnqueueCases(DayData day)
@@ -350,7 +361,8 @@ public class DeskController : MonoBehaviour
         {
             if (foundContradictions.Add((section.Section, rule.Rule)))
             {
-                AddPoints(scoringSettings.ContradictionFoundPoints);
+                GameSession.AddContradictionFound(scoringSettings.ContradictionFoundPoints);
+                ShowPoints(scoringSettings.ContradictionFoundPoints);
             }
 
             return;
@@ -359,15 +371,13 @@ public class DeskController : MonoBehaviour
         wrongChecks++;
         UpdateChecksText();
 
-        if (wrongChecks > scoringSettings.FreeWrongChecksPerDay)
-        {
-            AddPoints(scoringSettings.WrongCheckPoints);
-        }
+        int penalty = wrongChecks > scoringSettings.FreeWrongChecksPerDay ? scoringSettings.WrongCheckPoints : 0;
+        GameSession.AddWrongCheck(penalty);
+        ShowPoints(penalty);
     }
 
-    private void AddPoints(int points)
+    private void ShowPoints(int points)
     {
-        GameSession.AddPoints(points);
         UpdateScoreText();
         ShowPopup(points);
     }

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f734de41cb60a74fac4b2d6c2140220, type: 3}
+  m_Name: Day1Info
+  m_EditorClassIdentifier: Assembly-CSharp::InfoBookData
+  date: 
+  title: Daily Facts
+  pages:
+  - heading: Transport
+    facts:
+    - 'Harbor shuttle: evening departures rise from 12 to 18, starting November 2.
+      Service manager: Mira Chen.'
+    - 'Transit route survey: 200 residents surveyed, 60 in favour (30 percent).'
+  - heading: Culture and community
+    facts:
+    - 'Riverside Museum: first public day is November 14. November 7 is a staff-only
+      rehearsal. Director: Elena Park.'
+    - 'Westbank Repair Cafe: 45 of 60 appliances repaired in October (75 percent).
+      Next public session: November 8. Coordinator: Jules Morgan.'
